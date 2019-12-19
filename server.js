@@ -14,6 +14,11 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// ROUTER
+// The below points our server to a series of "route" files.
+// require("./routing/....Routes.js")(app, path);
+// require("./routing/....Routes.js")(app, path);
+
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/jboe26/quizzly#readme",
   "dependencies": {
-    "bcrypt": "^3.0.7"
+    "bcrypt": "^3.0.7",
+    "express": "^4.17.1",
+    "init": "^0.1.2",
+    "mysql": "^2.17.1"
   }
 }
