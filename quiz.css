@@ -1,6 +1,7 @@
 body {
     background-color: lightblue;
-    
+    margin: auto;
+    padding: 30px;
 }
 
 #image {
