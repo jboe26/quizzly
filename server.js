@@ -5,7 +5,7 @@ var PORT = process.env.PORT || 3000;
 
 var app = express();
 const mysql = require('mysql');
-// TO DO set up View engine
+// TO DO: set up View engine
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
