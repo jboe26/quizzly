@@ -15,11 +15,18 @@
     <!--Google Fonts CDN-->
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Montserrat+Alternates&display=swap" rel="stylesheet">
 
-        <!--Custom styles-->
+    <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="login.css">
+
+    <!-- Jquery -->
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 </head>
 
 <body>
+
     <nav class="navbar">
         <span class="navbar-brand navbar1">Quizzly</span>
       </nav>
@@ -60,5 +67,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+    $("#login").on("click", function (event){
+      $.ajax({url: "/login", success: function(user){
+        event.preventDefault();
+      }});
+    });
+    </script>
+    
 </body>
+
 </html>
