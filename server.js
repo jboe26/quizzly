@@ -18,13 +18,8 @@ app.use(express.json());
 // require("./routing/....Routes.js")(app, path);
 // require("./routing/....Routes.js")(app, path);
 
-app.get("/login", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/login.html"));
-});
+require("./routes/htmlRoutes")(app);
 
-app.get("/signup", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/registration.html"));
-});
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
