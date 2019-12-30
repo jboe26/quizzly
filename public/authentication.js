@@ -1,81 +1,38 @@
+var bcrypt = require('bcryptjs');
+var salt = bcrypt.genSaltSync(10);
+var hash = bcrypt.hashSync("B4c0/\/", salt);
 var db = require('../models');
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
 
-//register: storing name, email and password and redirecting to home page after signup
-app.post('/user/create', function (req, res) {
-  bcrypt.hash(req.body.passwordsignup, saltRounds, function (err,   hash) {
- db.User.create({
-   name: req.body.usernamesignup,
-   email: req.body.emailsignup,
-   password: hash
-   }).then(function(data) {
-    if (data) {
-    res.redirect('/home');
-    }
-  });
- });
+var bcrypt = dcodeIO.bcrypt;
+
+// Store hash in your password DB.
+
+// Load hash from your password DB.
+bcrypt.compareSync("B4c0/\/", hash); // true
+bcrypt.compareSync("not_bacon", hash); // false
+
+var hash = bcrypt.hashSync('bacon', 8);
+
+var bcrypt = require('bcryptjs');
+bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash("B4c0/\/", salt, function(err, hash) {
+        // Store hash in your password DB.
+    });
 });
 
-//login page: storing and comparing email and password,and redirecting to home page after login
-app.post('/user', function (req, res) {
-  db.User.findOne({
-       where: {
-           email: req.body.email
-              }
-  }).then(function (user) {
-      if (!user) {
-         res.redirect('/');
-      } else {
-bcrypt.compare(req.body.password, user.password, function (err, result) {
-     if (result == true) {
-         res.redirect('/home');
-     } else {
-      res.send('Incorrect password');
-      res.redirect('/');
-     }
-   });
-  }
+// Load hash from your password DB.
+bcrypt.compare("B4c0/\/", hash, function(err, res) {
+  // res === true
 });
+bcrypt.compare("not_bacon", hash, function(err, res) {
+  // res === false
 });
 
-module.exports = function (sequelize, DataTypes) {
-  var User = sequelize.define("User", { 
-    id: {
-      primaryKey: true,
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true
-    },
-    name: {
-      type: DataTypes.STRING,
-      is: ["^[a-z]+$", 'i'],
-      allowNull: false,
-      required: true
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      isEmail: true,
-      isUnique: true,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      required: true,
-      len: [2,10]
-    }
-  });
+// As of bcryptjs 2.4.0, compare returns a promise if callback is omitted:
+bcrypt.compare("B4c0/\/", hash).then((res) => {
+  // res === true
+});
 
+bcrypt.hash('bacon', 8, function(err, hash) {
+});
 
-// generating a hash
-User.generateHash = function (password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-// checking if password is valid
-User.prototype.validPassword = function (password) {
-  return bcrypt.hashSync(password, this.localPassword);
-};
-
-}
