@@ -9,22 +9,22 @@
     
    	body {
 		
-		font-family: "helvetica neue", helvetica, arial, sans-serif;
+		
 		font-size: 13px;
 		text-align: center;
-		background-image: url('https://media.gettyimages.com/vectors/seamless-education-wallpaper-background-vector-id165694816');
+		background-image: url('http://www.pptback.com/uploads/education-blackboard-backgrounds-powerpoint.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-        font-family: 'Numans', sans-serif;
+        font-family: 'Gochi Hand', cursive;
     }
 
         
     .navbar1, .navbar{
-        font-family: 'Montserrat Alternates', sans-serif;
+        
         color: white;
         font-size: 35px;
 		margin-left: 80px;
-		background-color: green ;
+		/* background-color: green ; */
     }
 
     .container{
