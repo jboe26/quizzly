@@ -9,13 +9,15 @@
     <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="app.css">
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Quizzly App</title>
 </head>
+
 <body>
 
 
-    <!-- 1. Go thru and put correct next to the correct answers --> 
+    <!-- 1. Go thru and put correct next to the correct answers -->
     <!-- 2. put an id="" in the correct answer follow my guide for the history page for each category -->
 
     <div class="container">
@@ -23,10 +25,11 @@
         <div class="qs">
             <div class="question1">
                 <p>Question 1: Which war was fought between the north and the south regions of the United States?</p>
-                <!-- correct--> <input type="radio" name="answer1" id="1" value="civilwar">A: Civil War 
-                <input type="radio" name="answer1" value="mexicanwar">B: Mexican War
-                <input type="radio" name="answer1" value="ww1">C: World War I
-                <input type="radio" name="answer1" value="ww2">C: World War II
+                <!-- correct--> <input type="radio" name="answer1" id="1" value="civilwar"> A: Civil War <br>
+                <input type="radio" name="answer1" value="mexicanwar"> B: Mexican War <br>
+                <input type="radio" name="answer1" value="ww1"> C: World War I <br>
+                <input type="radio" name="answer1" value="ww2"> D: World War II <br>
+                <button type="button" id="next1" class="btn btn-dark">Next</button>
             </div>
             <div class="question2">
                 <p>Question 2: This was the president of the Confederate states during the U.S. Civil War.</p>
@@ -34,20 +37,24 @@
                 <input type="radio" name="answer2" value="jeffersondavis">B: Jefferson Davis
                 <input type="radio" name="answer2" value="johnadams">C: John Adams
                 <!-- correct --> <input type="radio" name="answer2" id="2" value="abrahamlincoln">D: Abraham Lincoln
+                <button type="button" id="next2" class="btn btn-dark">Next</button>
             </div>
             <div class="question3">
                 <p>Question 3: Who was the leader of the Nazi party?</p>
                 <input type="radio" name="answer3" value="abrahamlincoln"> A: Abraham Lincoln
                 <input type="radio" name="answer3" value="saddamhussein">B: Saddam Hussein
                 <input type="radio" name="answer3" value="georgewashington">C: George Washington
-               <!-- correct-->  <input type="radio" name="adolfhitler" id="3" value="c">D: Adolf Hitler
+                <!-- correct--> <input type="radio" name="adolfhitler" id="3" value="c">D: Adolf Hitler
+                <button type="button" id="next3" class="btn btn-dark">Next</button>
             </div>
             <div class="question4">
-                <p>Question 4: The election of Abraham Lincoln and the south having the right to secede were the two causes of what major event?</p>
+                <p>Question 4: The election of Abraham Lincoln and the south having the right to secede were the two
+                    causes of what major event?</p>
                 <input type="radio" name="answer4" value="declarationofindependence">A: Declaration of Independence
                 <!-- correct --> <input type="radio" name="answer4" id="4" value="uscivilwar">B: U.S. Civil War
                 <input type="radio" name="answer4" value="stockmarketcrashing">C: Stock Market crashing
                 <input type="radio" name="answer4" value="noneoftheabove">D: none of the above
+                <button type="button" id="next4" class="btn btn-dark">Next</button>
             </div>
             <div class="question5">
                 <p>Question 5: Which city was attacked by the first atomic bomb?</p>
@@ -55,33 +62,43 @@
                 <input type="radio" name="answer5" value="paris">B: Paris
                 <!-- correct --> <input type="radio" name="answer5" id="5" value="hiroshima">C: Hiroshima
                 <input type="radio" name="answer5" value="mexicocity">D: Mexico City
+                <button type="button" id="next5" class="btn btn-dark">Next</button>
             </div>
             <div class="question6">
                 <p>Question 6: These two states gave some land to create Washington D.C.</p>
                 <input type="radio" name="answer6" value="virginiaandnewyork">A: Virginia and New York
                 <input type="radio" name="answer6" value="connecticutandvirginia">B: Connecticut and Virginia
                 <input type="radio" name="answer6" value="newyorkandmaryland">C: New York and Maryland
-                <!--correct--> <input type="radio" name="answer6" id="6" value="marylandandvirginia">D: Maryland and Virginia
+                <!--correct--> <input type="radio" name="answer6" id="6" value="marylandandvirginia">D: Maryland and
+                Virginia
+                <button type="button" id="next6" class="btn btn-dark">Next</button>
             </div>
             <div class="question7">
                 <p>Question 7: What was Reconstruction?</p>
-                <!-- correct --> <input type="radio" name="answer7" id="7" value="confedstates">A: bringing the 11 Confederate states back into the Union
+                <!-- correct --> <input type="radio" name="answer7" id="7" value="confedstates">A: bringing the 11
+                Confederate states back into the Union
                 <input type="radio" name="answer7" value="rebuildamerica">B: rebuilding North America
                 <input type="radio" name="answer7" value="rebuildmexico">C: rebuilding Mexico
+                <button type="button" id="next7" class="btn btn-dark">Next</button>
             </div>
             <div class="question8">
                 <p>Question 8: What major event happened in 1620?</p>
-                <input type="radio" name="answer8" value="declarationofindependence">A: the Declaration of Independence was signed
-                <!-- correct --> <input type="radio" id="8" name="answer8" value="pilgrims">B: the Pilgrims settled in the New World
+                <input type="radio" name="answer8" value="declarationofindependence">A: the Declaration of Independence
+                was signed
+                <!-- correct --> <input type="radio" id="8" name="answer8" value="pilgrims">B: the Pilgrims settled in
+                the New World
                 <input type="radio" name="answer8" value="startww1">C: the beginning of World War I
                 <input type="radio" name="answer8" value="endcivilwar">D: the end of the Civil War
+                <button type="button" id="next8" class="btn btn-dark">Next</button>
             </div>
             <div class="question9">
                 <p>Question 9: George Washington was the...?</p>
                 <input type="radio" name="answer9" value="president">A: 16th President of the United States
-                <!-- correct --> <input type="radio" name="answer9" id="9" value="commander">B: Commander-in-chief of the Continental Army
+                <!-- correct --> <input type="radio" name="answer9" id="9" value="commander">B: Commander-in-chief of
+                the Continental Army
                 <input type="radio" name="answer9" value="dictator">C: Dictator of Germany
                 <input type="radio" name="answer9" value="primeminister">D: British Prime Minister in 1914
+                <button type="button" id="next9" class="btn btn-dark">Next</button>
             </div>
             <div class="question10">
                 <p>Question 10: The “Lost Colony” was the nickname of which colony?</p>
@@ -89,7 +106,7 @@
                 <input type="radio" name="answer10" value="massachusetts">B: Massachusetts
                 <input type="radio" name="answer10" value="virginia">C: Virginia
             </div>
-            <button type="button" id="doneButton">Done!</button>
+            <button type="button" id="done" class="btn btn-secondary">Grade My Answers!</button>
         </div>
         <br>
         <h2 id="correctAnswers"></h2>
@@ -97,9 +114,10 @@
         <h2 id="missed"></h2>
 
     </div>
-</div>
+    </div>
 
-<script src="answers.js"></script>
+    <script src="answers.js"></script>
 
 </body>
+
 </html>
