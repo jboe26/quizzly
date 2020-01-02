@@ -1,7 +1,7 @@
 var bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
 var hash = bcrypt.hashSync("B4c0/\/", salt);
-var db = require('../models');
+var db = require('./models');
 
 var bcrypt = dcodeIO.bcrypt;
 
@@ -11,9 +11,8 @@ var bcrypt = dcodeIO.bcrypt;
 bcrypt.compareSync("B4c0/\/", hash); // true
 bcrypt.compareSync("not_bacon", hash); // false
 
-var hash = bcrypt.hashSync('bacon', 8);
 
-var bcrypt = require('bcryptjs');
+
 bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash("B4c0/\/", salt, function(err, hash) {
         // Store hash in your password DB.
