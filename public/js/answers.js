@@ -5,6 +5,7 @@ $(document).ready(function () {
     var correctAnswers = 0;
     var missed = 5;
     var incorrectAnswers = 0;
+    var score = 0;
     var intervalID = null;
     //Declare variable equal to the start time
     var time = 10;
@@ -43,7 +44,8 @@ $(document).ready(function () {
 
         $("#correctAnswers").text("You got " + correctAnswers + " questions right.");
         $("#missed").text("You missed " + missed + " questions.");
-        $("#incorrectAnswers").text("You got " + incorrectAnswers + " questions wrong.")
+        $("#incorrectAnswers").text("You got " + incorrectAnswers + " questions wrong.");
+        $("#incorrectAnswers").text("Your score " + score + "%")
     });
 
 
@@ -67,6 +69,7 @@ $(document).ready(function () {
 
         if (radioValue == rightAnswer) {
             correctAnswers++;
+            score += 10;
         } else {
             incorrectAnswers++;
         }
