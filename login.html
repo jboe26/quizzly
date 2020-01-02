@@ -3,7 +3,7 @@
 
 <head>
     <title>Login Page</title>
- 
+
     <!--Bootsrap 4 CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -15,50 +15,94 @@
     <!--Google Fonts CDN-->
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Montserrat+Alternates&display=swap" rel="stylesheet">
 
-        <!--Custom styles-->
+    <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 
 <body>
     <nav class="navbar">
         <span class="navbar-brand navbar1">Quizzly</span>
-      </nav>
+    </nav>
 
     <div class="container">
         <div class="d-flex justify-content-center h-100">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Sign In</h3>
-                    
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="input-group form-group">
+            <div class="card"> <br>
+                <ul class="nav nav-tabs card-header-tabs" id="login-list" role="tablist">
+
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#signIn" role="tab"
+                            aria-controls="signIn" aria-selected="true">
+                            <h3>Sign In</h3>
+                        </a>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#register" role="tab"
+                            aria-controls="register" aria-selected="false">
+                            <h3>Register</h3>
+                        </a>
+                </ul><br>
+                <div class="tab-content">
+                    <div class="tab-pane active container" id="signIn">
+
+                        <form>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="username" id="username">
+
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="password" id="password">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Login" class="btn text-align: center; login_btn" id="login">
+                            </div>
+                        </form>
+
+                        <!-- <div class="tab-pane container" id="register" >  
+              
+                        <form>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="firstname" id="firstname">
+    
+                            </div>
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="username" id="username">
+                            <input type="text" class="form-control" placeholder="lastname" id="lastname">
 
                         </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="username" id="username1">
+    
                             </div>
-                            <input type="password" class="form-control" placeholder="password" id="password">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="password" id="password1">
+                            </div>
+    
+                            <div class="form-group">
+                                <input type="submit" value="register" class="btn text-align: center; register_btn" id="register">
+                            </div>
+                        </form> -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links" id="signUp">
+                            Don't have an account?<a href="#">Sign Up</a>
                         </div>
-                        
-                        <div class="form-group">
-                            <input type="submit" value="Login" class="btn text-align: center; login_btn" id="login">
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links" id="signUp">
-                        Don't have an account?<a href="#">Sign Up</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
+
 </html>

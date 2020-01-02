@@ -35,8 +35,9 @@ background-color: rgba(0,0,0,0.5) !important;
 }
 
 
-.card-header h3{
+.card-header-tabs h3{
 color: white;
+margin-left: 20px;
 }
 
 
