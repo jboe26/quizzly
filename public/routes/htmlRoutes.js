@@ -26,8 +26,8 @@ app.get("/login", function(req, res) {
     res.sendFile(path.join(__dirname, "../login.html"));
   });
   
-  app.get("/signup", function(req, res) {
-    res.sendFile(path.join(__dirname, "../registration.html"));
+  app.get("/register", function(req, res) {
+    res.sendFile(path.join(__dirname, "../register.html"));
   });
 
   app.get("/english", function(req, res) {
