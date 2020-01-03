@@ -25,11 +25,17 @@ body {
 }
 .qs {
 	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+
+#done {
+	display: none;
 }
 
 /* Show/Hide Questions 1-10 Here */
 
-.question1, .question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
+.question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
 	display: none;
 }
 

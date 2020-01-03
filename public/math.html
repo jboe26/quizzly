@@ -1,3 +1,4 @@
+
     <!DOCTYPE html>
     <html lang="en">
     
@@ -9,7 +10,8 @@
         <!--Custom styles-->
         <link rel="stylesheet" type="text/css" href="app.css">
         <link href="https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap" rel="stylesheet">
-    
+       <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <title>Quizzly App</title>
     </head>
     <body>        
@@ -86,16 +88,18 @@
                     <input type="radio" name="answer10" value="5">C 5
                     <input type="radio" name="answer10" value="8">D 8
                 </div>
-                <button type="button" id="doneButton">Done!</button>
-            </div>
-            <br>
-            <h2 id="correctAnswers"></h2>
-            <h2 id="incorrectAnswers"></h2>
-            <h2 id="missed"></h2>
-    
+            <button type="button" id="done" class="btn btn-secondary">Grade My Answers!</button>
         </div>
-    
-        <script src="answers.js"></script>
+        <br>
+        <h2 id="correctAnswers"></h2>
+        <h2 id="incorrectAnswers"></h2>
+        <h2 id="missed"></h2>
 
-    </body>
-    </html>
+    </div>
+    </div>
+
+    <script src="answers.js"></script>
+
+</body>
+
+</html>
