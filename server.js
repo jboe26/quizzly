@@ -1,14 +1,18 @@
 var express = require("express");
-var path = require("path");
-
+// var path = require("path");
+var mongoose = require("mongoose");
+// var models = require('./models');
+// var db = require("/models");
 // Sets up the Express App
 // =============================================================
+
 var app = express();
-const mysql = require('mysql');
-var PORT = process.env.PORT || 3000;
+
+var PORT = process.env.PORT || 4000;
 
 // Requiring our models for syncing
 // var db = require("./models");
+
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -17,14 +21,15 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
+
+
 // Routes
 // =============================================================
-require("./public/routes/htmlRoutes.js")(app,path);
 
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
-// db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-

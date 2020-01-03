@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Montserrat+Alternates&display=swap" rel="stylesheet">
 
     <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 
 <body>
@@ -80,7 +80,7 @@
     <script>
         $("#register").on("click", function (event) {
             $.ajax({
-                url: "/register", success: function (user) {
+                url: "index.html", success: function (user) {
                     event.preventDefault();
                 }
             });

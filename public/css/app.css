@@ -35,6 +35,31 @@ body {
 	align-content: center;
 }
 
+
+
+/* Show/Hide Questions 1-10 Here */
+
+.question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
+	display: none;
+}
+
+#correctAnswers, #incorrectAnswers, #missed {
+	text-align: center;
+	color: white;
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+ul {
+	margin: 30px auto;
+
 .instructions{
 color: white;
 font-size: 40px;
