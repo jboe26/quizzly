@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 
 
-    $("#doneButton").on("click", function (event) {
+    $("#done").on("click", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         var category = docment.getElementById(idQ);
@@ -134,22 +134,7 @@ $(document).ready(function () {
     var missed = 10;
     var incorrectAnswers = 0;
     
-   
 
-
-
-<<<<<<< HEAD:public/js/answers.js
-        evaluateQuestion("answer1", "a");
-        evaluateQuestion("answer2", "b");
-        evaluateQuestion("answer4", "c");
-        evaluateQuestion("answer5", "d");
-        evaluateQuestion("answer6", "e");
-        evaluateQuestion("answer7", "a");
-        evaluateQuestion("answer8", "b");
-        evaluateQuestion("answer9", "c");
-        evaluateQuestion("answer10", "d");
-
-=======
     $("#done").click(function () {
         // $(".questions").hide();
         
@@ -163,7 +148,6 @@ $(document).ready(function () {
         evaluateQuestion("answer8", "8");
         evaluateQuestion("answer9", "9");
         evaluateQuestion("answer10", "10");
->>>>>>> 40c30125b363ff7b84efb66bfcec305fce660343:public/answers.js
 
         $("#correctAnswers").text("You got " + correctAnswers + " questions right.");
         $("#missed").text("You missed " + missed + " questions.");
