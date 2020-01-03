@@ -1,37 +1,41 @@
-var bcrypt = require('bcryptjs');
-var salt = bcrypt.genSaltSync(10);
-var hash = bcrypt.hashSync("B4c0/\/", salt);
-var db = require('./models');
+//required files
+const express = require('express')
+const router = express.Router();
 
-var bcrypt = dcodeIO.bcrypt;
+//bcryptjs
+const bcrypt = require('bcryptjs')
 
-// Store hash in your password DB.
-
-// Load hash from your password DB.
-bcrypt.compareSync("B4c0/\/", hash); // true
-bcrypt.compareSync("not_bacon", hash); // false
+//User modal of mongoDB
+const User = require('../models/User')
 
 
+//Post request for login
+router.post('/', (req, res) => {
+  //email and password
+  const email = req.body.email
+  const password = req.body.password
 
-bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash("B4c0/\/", salt, function(err, hash) {
-        // Store hash in your password DB.
-    });
-});
+  //find user exist or not
+  User.findOne({ email })
+    .then(user => {
+      //if user does not exist than return status 400
+      if (!user) return res.status(400).json({ msg: "User does not exist" })
 
-// Load hash from your password DB.
-bcrypt.compare("B4c0/\/", hash, function(err, res) {
-  // res === true
-});
-bcrypt.compare("not_bacon", hash, function(err, res) {
-  // res === false
-});
+      //if user exist than compare password
+      //password comes from the user
+      //user.password comes from the database
+      bcrypt.compare(req.body.password, user.password, function (err, results) {
+        if (err) {
+          throw new Error(err)
+        }
+        if (results) {
+          return res.status(200).json({ msg: "Login success" })
+        } else {
+          return res.status(401).json({ msg: "Invalid credencial" })
+        }
+      })
+    })
 
-// As of bcryptjs 2.4.0, compare returns a promise if callback is omitted:
-bcrypt.compare("B4c0/\/", hash).then((res) => {
-  // res === true
-});
+})
 
-bcrypt.hash('bacon', 8, function(err, hash) {
-});
-
+module.exports = router
