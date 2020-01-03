@@ -3,6 +3,58 @@ $(document).ready(function () {
 
     $("#done").hide();
 
+
+
+    $("#doneButton").on("click", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+        var category = docment.getElementById(idQ);
+        if (category === "english") {
+            $('.slider').change(function () {
+                $('#slider_input').val("English");
+            });
+        }
+        else if (category === "history") {
+            $('.slider').change(function () {
+                $('#slider_input').val("History");
+            });
+        }
+        else if (category === "math") {
+            $('.slider').change(function () {
+                $('#slider_input').val("Math");
+            });
+        }
+        else if (category === "science") {
+            $('.slider').change(function () {
+                $('#slider_input').val("Science");
+            });
+        }
+        else if (category === "geography") {
+            $('.slider').change(function () {
+                $('#slider_input').val("Geography");
+            });
+        }
+        else {
+            console.log("Not grabbing quiz id.")
+        }
+        var newQuiz = {
+            quiz: $("#slider_input").val().trim()
+        };
+        // Send the POST request.
+        $.ajax("/api/quiz", {
+            type: "POST",
+            data: newQuiz
+        })
+    });
+
+    var correctAnswers = 0;
+    var missed = 5;
+    var incorrectAnswers = 0;
+    var score = 0;
+    var intervalID = null;
+    //Declare variable equal to the start time
+    var time = 10;
+
     $("#next1").on("click", function(event) {
         event.preventDefault();
         $(".question1").hide();
@@ -10,6 +62,7 @@ $(document).ready(function () {
         $(".question2").show();
         
     })
+
 
     $("#next2").on("click", function(event) {
         event.preventDefault();
@@ -85,6 +138,18 @@ $(document).ready(function () {
 
 
 
+<<<<<<< HEAD:public/js/answers.js
+        evaluateQuestion("answer1", "a");
+        evaluateQuestion("answer2", "b");
+        evaluateQuestion("answer4", "c");
+        evaluateQuestion("answer5", "d");
+        evaluateQuestion("answer6", "e");
+        evaluateQuestion("answer7", "a");
+        evaluateQuestion("answer8", "b");
+        evaluateQuestion("answer9", "c");
+        evaluateQuestion("answer10", "d");
+
+=======
     $("#done").click(function () {
         // $(".questions").hide();
         
@@ -98,10 +163,13 @@ $(document).ready(function () {
         evaluateQuestion("answer8", "8");
         evaluateQuestion("answer9", "9");
         evaluateQuestion("answer10", "10");
+>>>>>>> 40c30125b363ff7b84efb66bfcec305fce660343:public/answers.js
 
         $("#correctAnswers").text("You got " + correctAnswers + " questions right.");
         $("#missed").text("You missed " + missed + " questions.");
-        $("#incorrectAnswers").text("You got " + incorrectAnswers + " questions wrong.")
+        $("#incorrectAnswers").text("You got " + incorrectAnswers + " questions wrong.");
+        $("#incorrectAnswers").text("Your score " + score + "%")
+
     });
 
 
@@ -115,6 +183,7 @@ $(document).ready(function () {
 
         if (radioValue == rightAnswer) {
             correctAnswers++;
+            score += 10;
         } else {
             incorrectAnswers++;
         }

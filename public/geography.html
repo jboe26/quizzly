@@ -20,6 +20,12 @@
     
         <div class="container">
             <br><br>
+
+            <div class="jumbotron">
+                <h1 idQ="geography" value="2">Geography Quiz</h1>
+                <input type="hidden" id="slider_input" name="slider" value="" />
+            </div>
+
             <div class="qs">
                 <div class="question1">
                     <p>Question 1: On which continent do you live?</p>
@@ -28,6 +34,7 @@
                     <!-- correct--> <input type="radio" name="answer1" id="1" value="northAmerica">C: North America <br>
                     <input type="radio" name="answer1" value="antartica">D: Antartica <br>
                     <button type="button" id="next1" class="btn btn-dark">Next</button>
+
                 </div>
                 <div class="question2">
                     <p>Question 2: What is a continent?</p>
@@ -104,7 +111,16 @@
                 <button type="button" id="done" class="btn btn-secondary">Grade My Answers!</button>        
 
             </div>
+
+            <br>
+            <h2 id="correctAnswers"></h2>
+            <h2 id="incorrectAnswers"></h2>
+            <h2 id="missed"></h2>
+            <h1 id="score"></h1>
+    
+
            
+
         </div>
         </div>
         <br>
