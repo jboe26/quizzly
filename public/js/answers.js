@@ -130,6 +130,7 @@ $(document).ready(function () {
         $("#score").show();
     })
     
+    
     var correctAnswers = 0;
     var missed = 10;
     var incorrectAnswers = 0;
