@@ -68,7 +68,7 @@ $(document).ready(function () {
     $("#next10").on("click", function(event) {
         event.preventDefault();
         $(".question10").hide();
-        
+        $("#done").show();
 
     })
     

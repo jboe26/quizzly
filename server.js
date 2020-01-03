@@ -5,7 +5,7 @@ var path = require("path");
 // =============================================================
 var app = express();
 const mysql = require('mysql');
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 4000;
 
 // Requiring our models for syncing
 // var db = require("./models");
