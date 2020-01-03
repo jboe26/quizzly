@@ -1,23 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url('https://www.pixelstalk.net/wp-content/uploads/wallpapers/Chalk-on-Board.jpg');
+background-image: url('https://c7.uihere.com/files/965/476/904/blackboard-learn-encapsulated-postscript-clip-art-back-to-school.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
 }
 
-.navbar{
-/* background-color: black; */
-}
-
-.navbar1{
+/* .navbar1{
 font-family: 'Montserrat Alternates', sans-serif;
-color: white;
+color: goldenrod;
 font-size: 42px;
-margin-left: 580px;
-}
+margin-top: 80px;
+margin-left: 430px;
+font-weight: bold;
+} */
 
 .container{
 height: 100%;
@@ -26,7 +24,7 @@ align-content: center;
 
 .card{
 height: 450px;
-margin-top: 80px;
+margin-top: 200px;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;

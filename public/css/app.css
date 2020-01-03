@@ -1,35 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Walter+Turncoat);
 * {
-	margin: 20px;
+	margin: 30px 20px;
 	padding: 5;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
 body {
-	font-size: 13px;
-	text-align: center;
-	background-image: url('http://www.in-formality.com/wiki/images/c/c6/Blackboard.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	font-family: 'Gochi Hand', cursive;
+	font-size: 40px;
+	color: #E8E8E8;
+	font-family: "Walter Turncoat", cursive;
+	display: block;
+	width: 80%;
+	height: 80%;
+	min-height: auto;
+	margin: 30px auto 0 auto;
+	background-color: #497959;
+	padding: 20px 30px;
+	overflow-y: auto;
+	box-shadow: -1px 2px 2px 0px #555, inset 0 0 10px 0 #555;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	border: #B78240 solid 10px;
 }
-.navbar1, .navbar{
-	color: white;
-	font-size: 35px;
-	margin-left: 80px;
-}
+
 .container{
 	height: 100%;
 	align-content: center;
 }
-.qs {
-	font-size: 20px;
-}
+
+
 
 /* Show/Hide Questions 1-10 Here */
 
-.question1, .question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
+.question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
+	display: none;
+}
+
+#correctAnswers, #incorrectAnswers, #missed {
+	text-align: center;
+	color: white;
 	display: none;
 }
 
@@ -43,14 +59,24 @@ body {
 
 ul {
 	margin: 30px auto;
+
+.instructions{
+color: white;
+font-size: 40px;
+font-style: italic;
+text-align: center;
+}
+
+ul {	
 	text-align: center;
 }
+
 li {
 	list-style: none;
 	position: relative;
 	display: inline-block;
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 }
 @-moz-keyframes rotate {
 	0% {
@@ -91,7 +117,7 @@ li {
 	top: 0;
 	width: 120%;
 	height: 120%;
-	padding-top: 30px;
+	padding-top: 50px;
 	text-decoration: none;
 	text-align: center;
 	font-size: 25px;
@@ -128,7 +154,7 @@ li {
 }
 a.red {
 	background-color: rgba(239,57,50,1);
-	color: rgba(133,32,28,1);
+	color: rgb(230, 219, 227);
 	border-color: rgba(133,32,28,.2);
 }
 a.red:hover {
@@ -144,8 +170,8 @@ a.purple:hover {
 }
 a.green {
 	background-color:green;
-	color: rgba(0,63,71,1);
-	border-color: rgba(0,63,71,.2);
+	color:rgb(230, 219, 227);
+	border-color: rgba(78, 139, 94, 0.2);
 }
 a.green:hover {
 	color:green;
@@ -157,8 +183,8 @@ a.yellow {
 }
 a.blue {
 	background-color: blue;
-	color: rgb(230, 219, 227);
-	border-color: rgba(74, 153, 0, 0.2);
+	color: black;
+	border-color: rgba(153,38,0,.2);
 }
 a.yellow:hover {
 	color: rgba(252,227,1,1);
@@ -196,5 +222,18 @@ a.blue:hover {
 	background: rgba(161,145,0,.7);
 }
 .blue span {
-	background:blue;
+	background:rgb(97, 97, 107);
+}
+.purple span {
+	background: rgb(165, 94, 231);
+}
+
+.qs {
+	font-size: 20px;
+}
+
+/* Show/Hide Questions 1-10 Here */
+
+.question1, .question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
+	display: none;
 }
