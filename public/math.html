@@ -1,112 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="app.css">
-    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <title>Quizzly App</title>
-</head>
-
-<body>
-
-    <!-- 1. Go thru and put correct next to the correct answers -->
-    <!-- 2. put an id="" in the correct answer follow my guide for the history page for each category -->
-
-    <div class="container">
-        <br><br>
-        <div class="qs">
-            <div class="question1">
-                <p>Question 1: Which war was fought between the north and the south regions of the United States?</p>
-                <!-- correct--> <input type="radio" name="answer1" id="1" value="civilwar"> A: Civil War <br>
-                <input type="radio" name="answer1" value="mexicanwar"> B: Mexican War <br>
-                <input type="radio" name="answer1" value="ww1"> C: World War I <br>
-                <input type="radio" name="answer1" value="ww2"> D: World War II <br>
-                <button type="button" id="next1" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question2">
-                <p>Question 2: This was the president of the Confederate states during the U.S. Civil War.</p>
-                <input type="radio" name="answer2" value="georgewashington">A: George Washington
-                <input type="radio" name="answer2" value="jeffersondavis">B: Jefferson Davis
-                <input type="radio" name="answer2" value="johnadams">C: John Adams
-                <!-- correct --> <input type="radio" name="answer2" id="2" value="abrahamlincoln">D: Abraham Lincoln
-                <button type="button" id="next2" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question3">
-                <p>Question 3: Who was the leader of the Nazi party?</p>
-                <input type="radio" name="answer3" value="abrahamlincoln"> A: Abraham Lincoln
-                <input type="radio" name="answer3" value="saddamhussein">B: Saddam Hussein
-                <input type="radio" name="answer3" value="georgewashington">C: George Washington
-                <!-- correct--> <input type="radio" name="adolfhitler" id="3" value="c">D: Adolf Hitler
-                <button type="button" id="next3" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question4">
-                <p>Question 4: The election of Abraham Lincoln and the south having the right to secede were the two
-                    causes of what major event?</p>
-                <input type="radio" name="answer4" value="declarationofindependence">A: Declaration of Independence
-                <!-- correct --> <input type="radio" name="answer4" id="4" value="uscivilwar">B: U.S. Civil War
-                <input type="radio" name="answer4" value="stockmarketcrashing">C: Stock Market crashing
-                <input type="radio" name="answer4" value="noneoftheabove">D: none of the above
-                <button type="button" id="next4" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question5">
-                <p>Question 5: Which city was attacked by the first atomic bomb?</p>
-                <input type="radio" name="answer5" value="negasaki">A: Nagasaki
-                <input type="radio" name="answer5" value="paris">B: Paris
-                <!-- correct --> <input type="radio" name="answer5" id="5" value="hiroshima">C: Hiroshima
-                <input type="radio" name="answer5" value="mexicocity">D: Mexico City
-                <button type="button" id="next5" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question6">
-                <p>Question 6: These two states gave some land to create Washington D.C.</p>
-                <input type="radio" name="answer6" value="virginiaandnewyork">A: Virginia and New York
-                <input type="radio" name="answer6" value="connecticutandvirginia">B: Connecticut and Virginia
-                <input type="radio" name="answer6" value="newyorkandmaryland">C: New York and Maryland
-                <!--correct--> <input type="radio" name="answer6" id="6" value="marylandandvirginia">D: Maryland and
-                Virginia
-                <button type="button" id="next6" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question7">
-                <p>Question 7: What was Reconstruction?</p>
-                <!-- correct --> <input type="radio" name="answer7" id="7" value="confedstates">A: bringing the 11
-                Confederate states back into the Union
-                <input type="radio" name="answer7" value="rebuildamerica">B: rebuilding North America
-                <input type="radio" name="answer7" value="rebuildmexico">C: rebuilding Mexico
-                <button type="button" id="next7" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question8">
-                <p>Question 8: What major event happened in 1620?</p>
-                <input type="radio" name="answer8" value="declarationofindependence">A: the Declaration of Independence
-                was signed
-                <!-- correct --> <input type="radio" id="8" name="answer8" value="pilgrims">B: the Pilgrims settled in
-                the New World
-                <input type="radio" name="answer8" value="startww1">C: the beginning of World War I
-                <input type="radio" name="answer8" value="endcivilwar">D: the end of the Civil War
-                <button type="button" id="next8" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question9">
-                <p>Question 9: George Washington was the...?</p>
-                <input type="radio" name="answer9" value="president">A: 16th President of the United States
-                <!-- correct --> <input type="radio" name="answer9" id="9" value="commander">B: Commander-in-chief of
-                the Continental Army
-                <input type="radio" name="answer9" value="dictator">C: Dictator of Germany
-                <input type="radio" name="answer9" value="primeminister">D: British Prime Minister in 1914
-                <button type="button" id="next9" class="btn btn-dark">Next</button>
-            </div>
-            <div class="question10">
-                <p>Question 10: The “Lost Colony” was the nickname of which colony?</p>
-                <!-- correct --><input type="radio" name="answer10" id="10" value="jamestown">A: Jamestown
-                <input type="radio" name="answer10" value="massachusetts">B: Massachusetts
-                <input type="radio" name="answer10" value="virginia">C: Virginia
-            </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <!--Custom styles-->
+        <link rel="stylesheet" type="text/css" href="app.css">
+        <link href="https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap" rel="stylesheet">
+    
+        <title>Quizzly App</title>
+    </head>
+    <body>        
+        <div class="container">
+            <br><br>
+            
+                <div class="question1">
+                    <p>Question 1: Where should addition signs be placed between digits of the number 987654321 to get a total of 90?</p>
+                    <!-- correct--> <input type="radio" name="answer1" id="1" value="987654321">A: 9 + 8 + 7 + 6 + 54 + 3 + 2 + 1
+                    <input type="radio" name="answer1" value="987654321">B: 9 + 8 + 76 + 5 + 4 + 3 + 21
+                    <input type="radio" name="answer1" value="987654321">C: 9 + 8 + 7 + 6 + 5 + 4 + 32 + 1
+                    <input type="radio" name="answer1" value="11111">D: 1 + 1 + 1 + 1 + 1
+                </div>
+                <div class="question2">
+                    <p>Question 2:  A girl has to be at school by 8:00 A.M. It takes her 20 minutes to eat breakfast, 35 minutes to get dressed, and 15 minutes to walk to school. What time should she get up in the morning? </p>
+                    <input type="radio" name="answer2" value="7:00am">A: 7:00 A.M.
+                    <!-- correct--> <input type="radio" name="answer2" id="2" value="6:50am">B: 6:50 A.M.
+                    <input type="radio" name="answer2" value="6:40am">C: 6:40 A.M.
+                    <input type="radio" name="answer2" value="6:30am">D: 6:30 A.M.
+                </div>
+                <div class="question3">
+                    <p>Five hundred forty people went to the mall on Saturday. Twice as many people went to the mall on Sunday. How many people went to the mall for the entire weekend?</p>
+                    <input type="radio" name="answer3" value="1,080"> A: 1,080
+                    <input type="radio" name="answer3" value="1480">B: 1,480
+                    <input type="radio" name="answer3" value="1220">C: 1,220
+                   <!-- correct-->  <input type="radio" name="1,620" id="3" value="c">D: 1,620
+                </div>
+                <div class="question4">
+                    <p>Question 4: Emma has enough money to buy six compact discs per week. How many weeks until Emma can buy 30 compact discs?</p>
+                    <!-- correct--> <input type="radio" name="answer4" id="4" value="5">A: 5
+                    <input type="radio" name="answer4" value="6">B: 6
+                    <input type="radio" name="answer4" value="7">C: 7
+                    <input type="radio" name="answer4" value="8">D: 8
+                </div>
+                <div class="question5">
+                    <p>Question 5: Gerald's son will be fifteen this Friday. If Gerald just turned 40 years old, how old was Gerald when his son was born?</p>
+                    <input type="radio" name="answer5" value="24">A: 24
+                    <input type="radio" name="answer5" value="23">B: 23
+                    <!-- correct--> <input type="radio" name="answer5" id="5" value="25">C: 25
+                    <input type="radio" name="answer5" value="27">D: 27
+                </div>
+                <div class="question6">
+                    <p>Question 6: To go to the zoo, seven cars carried 28 people. If the same number of people were in each car, how many people were there per car?</p>
+                    <input type="radio" name="answer6" value="7">A: 7
+                    <input type="radio" name="answer6" value="6">B: 6
+                    <input type="radio" name="answer6" value="5">C: 5
+                    <!--correct--> <input type="radio" name="answer6" id="6" value="4">D: 4
+                </div>
+                <div class="question7">
+                    <p>Question 7: Mindy had 15 minutes to get to work. How many seconds did she have?</p>
+                    <input type="radio" name="answer7" value="60">A 60
+                    <!--correct--> <input type="radio" name="answer7" id="7" value="300">B 300
+                    <input type="radio" name="answer7" value="900">C 900
+                    <input type="radio" name="answer7" value="1200">D 1200
+                </div>
+                <div class="question8">
+                    <p>Question 8: Debbie went to pick apples from the orchard. She picked a bushel of 180 apples. She wanted to put them in little baskets that can each hold 9 apples. How many baskets will she need to pack the apples?</p>
+                    <input type="radio" name="answer8" value="12">A 12
+                    <!--correct--> <input type="radio" name="answer8" id="8" value="20">B 20
+                    <input type="radio" name="answer8" value="24">C 24
+                    <input type="radio" name="answer8" value="30">D 30
+                </div>
+                <div class="question9">
+                    <p>Question 9: In the first year of production a play sells 872 tickets, in its second year it sells 1053 tickets, in its third year it sells 92 less than in its second year. How many tickets are sold in 3 years?</p>
+                    <input type="radio" name="answer9" value="1961">A 1961
+                    <input type="radio" name="answer9" value="2961">B 2961
+                    <!--correct--> <input type="radio" name="answer9" id="9" value="2886">C 2886
+                    <input type="radio" name="answer9" value="3986">D 3986
+                </div>
+                <div class="question10">
+                    <p>Question 10: If you begin with a one digit integer, multiply by 3, add 8, divide by 2 and subtract 6, you will get the integer back. Find the number.</p>
+                    <input type="radio" name="answer10" value="2">A 2
+                    <!--correct--> <input type="radio" name="answer10" id="10" value="4">B 4
+                    <input type="radio" name="answer10" value="5">C 5
+                    <input type="radio" name="answer10" value="8">D 8
+                </div>
+                
+           
             <button type="button" id="done" class="btn btn-secondary">Grade My Answers!</button>
         </div>
         <br>
