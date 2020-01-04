@@ -9,6 +9,7 @@ $(function () {
     $("#email").val("");
     $("#username").val("");
     $("#password").val("");
+    $("#password2").val("");
   });
 
 });

@@ -152,11 +152,11 @@ app.get(
   }
 );
 
-app.post('/public', (req, res) => {
+app.post('/category', (req, res) => {
   db.User.findOne({ username: req.body.username }).then(user => {
     if (user) {
       const newQuiz = new Quiz({
-        Category: req.body.idQ,
+        Category: req.body.slider_input,
         username: req.body.username,
       });
       db.Quiz.create(newQuiz);
@@ -166,14 +166,14 @@ app.post('/public', (req, res) => {
   });
 });
 
-  app.post('/public', (req, res) => {
-    db.Score.findOne({ username: req.body.username }).then(user => {
+  app.post('/score', (req, res) => {
+    db.User.findOne({ username: req.body.username }).then(user => {
       if (user) {
         const newScore = new Score({
           Score: req.body.score_input,
           username: req.body.username,
         });
-        db.Quiz.create(newQuiz);
+        db.Score.create(newScore);
       } else {
         return res.status(404).json({ username: 'username did not match' });
       }
