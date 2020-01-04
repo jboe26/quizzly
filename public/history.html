@@ -21,7 +21,7 @@
     <div class="container">
         <br><br>
         <div class="jumbotron">
-            <h1 idQ="history" value="3">History Quiz</h1>
+            <h1 id="idQ" value="history">History Quiz</h1>
             <input type="hidden" id="slider_input" name="slider" value="" />
         </div>
         <div class="qs">
@@ -116,6 +116,9 @@
         <h2 id="incorrectAnswers"></h2>
         <h2 id="missed"></h2>
         <h1 id="score"></h1>
+        <form method="post" action="/public">
+            <input type="hidden" id="score_input" name="hidden" value="" />
+        </form>
     </div>
     </div>
 

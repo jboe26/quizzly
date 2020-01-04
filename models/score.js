@@ -8,6 +8,7 @@ var Schema = mongoose.Schema;
 var ScoreSchema = new Schema({
   // `title` is of type String
   Score: Number,
+  username: String
 
 });
 

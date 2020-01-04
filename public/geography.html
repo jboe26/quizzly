@@ -22,7 +22,7 @@
             <br><br>
 
             <div class="jumbotron">
-                <h1 idQ="geography" value="2">Geography Quiz</h1>
+                <h1 id="idQ" value="geography">Geography Quiz</h1>
                 <input type="hidden" id="slider_input" name="slider" value="" />
             </div>
 
@@ -117,7 +117,9 @@
             <h2 id="incorrectAnswers"></h2>
             <h2 id="missed"></h2>
             <h1 id="score"></h1>
-    
+            <form method="post" action="/public">
+                <input type="hidden" id="score_input" name="hidden" value="" />
+            </form>
 
            
 

@@ -8,44 +8,46 @@ $(document).ready(function () {
     $("#done").on("click", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-        var category = docment.getElementById(idQ);
-        if (category === "english") {
-            $('.slider').change(function () {
-                $('#slider_input').val("English");
-            });
-        }
-        else if (category === "history") {
-            $('.slider').change(function () {
-                $('#slider_input').val("History");
-            });
-        }
-        else if (category === "math") {
-            $('.slider').change(function () {
-                $('#slider_input').val("Math");
-            });
-        }
-        else if (category === "science") {
-            $('.slider').change(function () {
-                $('#slider_input').val("Science");
-            });
-        }
-        else if (category === "geography") {
-            $('.slider').change(function () {
-                $('#slider_input').val("Geography");
-            });
-        }
-        else {
-            console.log("Not grabbing quiz id.")
-        }
-        var newQuiz = {
-            quiz: $("#slider_input").val().trim()
-        };
-        // Send the POST request.
-        $.ajax("/api/quiz", {
-            type: "POST",
-            data: newQuiz
-        })
+        var category = document.getElementById(idQ).value;
+        $('.slider').change(function(){
+            $('#slider_input').val(category);
+        });
+        // if (category === "english") {
+        //     $('.slider').change(function () {
+        //         $('#slider_input').val("English");
+        //     });
+        // }
+        // else if (category === "history") {
+        //     $('.slider').change(function () {
+        //         $('#slider_input').val("History");
+        //     });
+        // }
+        // else if (category === "math") {
+        //     $('.slider').change(function () {
+        //         $('#slider_input').val("Math");
+        //     });
+        // }
+        // else if (category === "science") {
+        //     $('.slider').change(function () {
+        //         $('#slider_input').val("Science");
+        //     });
+        // }
+        // else if (category === "geography") {
+        //     $('.slider').change(function () {
+        //         $('#slider_input').val("Geography");
+        //     });
+        // }
+        // else {
+        //     console.log("Not grabbing quiz id.")
+        // }
+        var grade = document.getElementById(score);
+        $('.hidden').change(function(){
+            $('#score_input').val(grade);
+        });
+
+
     });
+        
 
     var correctAnswers = 0;
     var missed = 5;
@@ -152,7 +154,7 @@ $(document).ready(function () {
         $("#correctAnswers").text("You got " + correctAnswers + " questions right.");
         $("#missed").text("You missed " + missed + " questions.");
         $("#incorrectAnswers").text("You got " + incorrectAnswers + " questions wrong.");
-        $("#incorrectAnswers").text("Your score " + score + "%")
+        $("#score").text("Your score " + score + "%")
 
     });
 

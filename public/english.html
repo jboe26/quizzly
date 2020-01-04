@@ -18,8 +18,10 @@
 <body> 
     <div class="container">
         <div class="jumbotron">
-            <h1 idQ="english" value="1">English Quiz</h1>
-            <input type="hidden" id="slider_input" name="slider" value="" />
+            <h1 id="idQ" value="english">English Quiz</h1>
+            <form method="post" action="/public">
+                <input type="hidden" id="slider_input" name="slider" value="" />
+            </form>
         </div>
         <br><br>
         <div class="qs">
@@ -94,6 +96,9 @@
         <h2 id="incorrectAnswers"></h2>
         <h2 id="missed"></h2>
         <h1 id="score"></h1>
+        <form method="post" action="/public">
+            <input type="hidden" id="score_input" name="hidden" value="" />
+        </form>
     </div>
     </div>
 
