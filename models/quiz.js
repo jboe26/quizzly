@@ -12,7 +12,7 @@ var QuizSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Qote = mongoose.model("Quiz", QuizSchema);
+var Quiz = mongoose.model("Quiz", QuizSchema);
 
 // Export the Note model
 module.exports = Quiz;

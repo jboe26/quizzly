@@ -1,13 +1,14 @@
 $(function() {
-    $("#submit").on("click", function(event) {
+    $("#register").on("click", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
     
         var newUser = {
-          First_name: $("#validationServer01").val().trim(),
-          Last_name: $("#validationServer02").val().trim(),
-          user_email: $("#validationServerEmail").val().trim(),
-          user_password:$("validationServerPassword1").val().trim()
+          First_name: $("#firstname").val().trim(),
+          Last_name: $("#lastname").val().trim(),
+          user_email: $("#email").val().trim(),
+          username:$("#username").val().trim(),
+          user_password:$("#password").val().trim()
         };
     
         // Send the POST request.
