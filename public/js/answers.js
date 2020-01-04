@@ -1,15 +1,12 @@
 $(document).ready(function () {
     console.log("ready!");
 
-    $("#done").hide();
-
-
 
     $("#done").on("click", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         var category = document.getElementById(idQ).value;
-        $('.slider').change(function(){
+        $('.slider').change(function () {
             $('#slider_input').val(category);
         });
         // if (category === "english") {
@@ -41,105 +38,93 @@ $(document).ready(function () {
         //     console.log("Not grabbing quiz id.")
         // }
         var grade = document.getElementById(score);
-        $('.hidden').change(function(){
+        $('.hidden').change(function () {
             $('#score_input').val(grade);
         });
 
 
     });
-        
 
-    var correctAnswers = 0;
-    var missed = 5;
-    var incorrectAnswers = 0;
-    var score = 0;
-    var intervalID = null;
-    //Declare variable equal to the start time
-    var time = 10;
 
-    $("#next1").on("click", function(event) {
+    var correctAnswers = 10;
+    var missed = 10;
+    var incorrectAnswers = 10;
+    var score = 100;
+
+
+    $("#next1").on("click", function (event) {
         event.preventDefault();
         $(".question1").hide();
-        
         $(".question2").show();
-        
+
     })
 
 
-    $("#next2").on("click", function(event) {
+    $("#next2").on("click", function (event) {
         event.preventDefault();
         $(".question2").hide();
         $(".question3").show();
-        
+
     })
 
-    $("#next3").on("click", function(event) {
+    $("#next3").on("click", function (event) {
         event.preventDefault();
         $(".question3").hide();
         $(".question4").show();
-        
+
     })
 
-    $("#next4").on("click", function(event) {
+    $("#next4").on("click", function (event) {
         event.preventDefault();
         $(".question4").hide();
         $(".question5").show();
-        
+
     })
 
-    $("#next5").on("click", function(event) {
+    $("#next5").on("click", function (event) {
         event.preventDefault();
         $(".question5").hide();
         $(".question6").show();
-        
+
     })
 
-    $("#next6").on("click", function(event) {
+    $("#next6").on("click", function (event) {
         event.preventDefault();
         $(".question6").hide();
         $(".question7").show();
-        
+
     })
 
-    $("#next7").on("click", function(event) {
+    $("#next7").on("click", function (event) {
         event.preventDefault();
         $(".question7").hide();
         $(".question8").show();
-        
+
     })
 
-    $("#next8").on("click", function(event) {
+    $("#next8").on("click", function (event) {
         event.preventDefault();
         $(".question8").hide();
         $(".question9").show();
-        
+
     })
 
-    $("#next9").on("click", function(event) {
+    $("#next9").on("click", function (event) {
         event.preventDefault();
         $(".question9").hide();
         $(".question10").show();
-        
+
     })
 
-    $("#next10").on("click", function(event) {
+    $("#done").on("click", function (event) {
         event.preventDefault();
-        $(".question10").hide();
+        $("#musicinfo").show();
         $("#done").show();
         $("#correctAnswers").show();
         $("#missed").show();
         $("#incorrectAnswers").show();
+        $("#home").show();
 
-    })
-    
-    var correctAnswers = 0;
-    var missed = 10;
-    var incorrectAnswers = 0;
-    
-
-    $("#done").click(function () {
-        // $(".questions").hide();
-        
         evaluateQuestion("answer1", "1");
         evaluateQuestion("answer2", "2");
         evaluateQuestion("answer3", "3");
@@ -158,23 +143,22 @@ $(document).ready(function () {
 
     });
 
+})
 
-    
-    function evaluateQuestion(currentQuestion, rightAnswer) {
+function evaluateQuestion(currentQuestion, rightAnswer) {
 
-        var radioValue = $("input[name='" + currentQuestion + "']:checked").val();
-        if (radioValue) {
-            missed--;
-        }
-
-        if (radioValue == rightAnswer) {
-            correctAnswers++;
-            score += 10;
-        } else {
-            incorrectAnswers++;
-        }
-
-
-
+    var radioValue = $("input[name='" + currentQuestion + "']:checked").val();
+    if (radioValue) {
+        missed--;
     }
-});
+
+    if (radioValue == rightAnswer) {
+        correctAnswers++;
+        score += 10;
+    } else {
+        incorrectAnswers++;
+    }
+
+
+
+}
