@@ -37,7 +37,27 @@ body {
 
 
 
-/* Show/Hide Questions 1-10 Here */
+.card{
+	height: 450px;
+	margin-top: 100px;
+	/* margin-bottom: auto; */
+	width: 400px;
+	background-color: rgba(0,0,0,0.5) !important;
+	}
+	
+	
+	.card-header h3, h4 {
+	color: white;
+	margin-left: 20px;
+	text-align: center;
+	}
+	
+	#splash {
+		margin-left: 120px;
+	}
+	
+	
+	/* Show/Hide Questions 1-10 Here */
 
 .question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
 	display: none;
@@ -60,7 +80,9 @@ body {
 ul {
 	margin: 30px auto;
 
-.instructions{
+}
+
+.instructions {
 color: white;
 font-size: 40px;
 font-style: italic;
@@ -232,8 +254,3 @@ a.blue:hover {
 	font-size: 20px;
 }
 
-/* Show/Hide Questions 1-10 Here */
-
-.question1, .question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
-	display: none;
-}
