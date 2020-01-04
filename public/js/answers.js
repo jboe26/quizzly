@@ -120,15 +120,16 @@ $(document).ready(function () {
         
     })
 
-    $("#next10").on("click", function(event) {
+    $("#done").on("click", function(event) {
         event.preventDefault();
         $(".question10").hide();
         $("#done").show();
         $("#correctAnswers").show();
         $("#missed").show();
         $("#incorrectAnswers").show();
-
+        $("#score").show();
     })
+    
     
     var correctAnswers = 0;
     var missed = 10;
