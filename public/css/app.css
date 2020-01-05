@@ -35,7 +35,12 @@ body {
 	align-content: center;
 }
 
-
+#score
+#correctAnswers
+#incorrectAnswers
+ 	#missed {
+	color: black;
+}
 
 .card{
 	height: 450px;

@@ -9,13 +9,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var http = require('http');  
+var httpServer = http.createServer(app);  // app middleware
 
 var config = require('./config/config.js'), //config file contains all tokens and other private info
 funct = require('./config/functions.js'); //funct file contains our helper functions for our Passport and database work
 
 var app = express();
 
-https://www.ctl.io/developers/blog/post/build-user-authentication-with-node-js-express-passport-and-mongodb
+//https://www.ctl.io/developers/blog/post/build-user-authentication-with-node-js-express-passport-and-mongodb
 //===============PASSPORT===============
 
 passport.use('local-login', new LocalStrategy(
@@ -120,18 +122,21 @@ app.use(express.static("public"));
 var MONGODB_URI = process.env.MONGODB_URI  || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
+// Set view engine
+app.set('view engine', 'jade');
 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 
 //passport config
 // https://stackoverflow.com/questions/41073038/confused-about-javascript-code-require-config-passportpassport
 require('./config/passport')(passport)
 
-
 //===============ROUTES=================
-// app.get('/', function(req, res) {res.render('index')});
-// app.get('/login', function(req, res) {res.render('login')});
-// app.get('/register', function(req, res) {res.render('register')});
+app.get('/', function(req, res) {res.render('index')});
+app.get('/login', function(req, res) {res.render('login')});
+app.get('/register', function(req, res) {res.render('register')});
 // app.get('/english', function(req, res) {res.render('english')});
 // app.get('/geography', function(req, res) {res.render('geography')});
 // app.get('/history', function(req, res) {res.render('history')});
