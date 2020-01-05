@@ -14,6 +14,20 @@ class App extends Component {
   }
   }
 
+render(){
+
+  return(
+
+    <div>
+    <div className="calculator">
+          <h1> calculator </h1>
+          <Result result={this.state.result}/>
+          <Keypad onClick={this.onClick}/>
+    </div>
+    
+    </div>
+  )
+}
 
 
 }
