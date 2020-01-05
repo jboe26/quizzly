@@ -44,10 +44,10 @@ $(document).ready(function () {
         // })
     });
 
-    var correctAnswers = 10;
-    var missed = 10;
-    var incorrectAnswers = 10;
-    var score = 100;
+    var correctAnswers = 0;
+    var missed = 0;
+    var incorrectAnswers = 0;
+    var score = 0;
 
 
     $("#next1").on("click", function (event) {
@@ -62,7 +62,7 @@ $(document).ready(function () {
         event.preventDefault();
         $(".question2").hide();
         $(".question3").show();
-
+ 890
     })
 
     $("#next3").on("click", function (event) {
@@ -143,14 +143,14 @@ $(document).ready(function () {
 
 })
 
-    function evaluateQuestion(currentQuestion, rightAnswer) {
+    function evaluateQuestion(correctAnswers, incorrectAnswers) {
 
-        var radioValue = $("input[name='" + currentQuestion + "']:checked").val();
+        var radioValue = $("input[name='" + correctAnswers + "']:checked").val();
         if (radioValue) {
             missed--;
         }
 
-        if (radioValue == rightAnswer) {
+        if (radioValue == incorrectAnswers) {
             correctAnswers++;
             score += 10;
         } else {
@@ -159,4 +159,4 @@ $(document).ready(function () {
 
 
 
-    }
+    } 
