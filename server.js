@@ -12,13 +12,10 @@ const jwt = require('jsonwebtoken');
 
 var app = express();
 
-var PORT = process.env.PORT || 4000; 
-
-var PORT = MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var PORT = process.env.PORT || 4000;
 
 // Requiring our models for syncing
 var db = require("./models");
-
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -28,7 +25,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";;
 
 mongoose.connect(MONGODB_URI);
 
@@ -37,7 +34,7 @@ mongoose.connect(MONGODB_URI);
 app.use(passport.initialize());
 
 //passport config
-require('./config/passport')(passport)
+// require('./config/passport')(passport)
 
 
 // Routes to the db
@@ -168,21 +165,21 @@ app.post('/category', (req, res) => {
   });
 });
 
-  app.post('/score', (req, res) => {
-    db.User.findOne({ username: req.body.username }).then(user => {
-      if (user) {
-        const newScore = new Score({
-          Score: req.body.score_input,
-          username: req.body.username,
-        });
-        db.Score.create(newScore);
-      } else {
-        return res.status(404).json({ username: 'username did not match' });
-      }
-    });
+app.post('/score', (req, res) => {
+  db.User.findOne({ username: req.body.username }).then(user => {
+    if (user) {
+      const newScore = new Score({
+        Score: req.body.score_input,
+        username: req.body.username,
+      });
+      db.Score.create(newScore);
+    } else {
+      return res.status(404).json({ username: 'username did not match' });
+    }
   });
+});
 
 
-    app.listen(PORT, function () {
-      console.log("App listening on PORT " + PORT);
-    });
+app.listen(PORT, function () {
+  console.log("App listening on PORT " + PORT);
+});
