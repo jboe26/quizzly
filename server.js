@@ -41,27 +41,27 @@ passport.use('local-login', new LocalStrategy(
     });
   }
 ));
-passport.use('local-register', new LocalStrategy(
-  {passReqToCallback : true}, //allows us to pass back the request to the callback
-  function(req, username, password, done) {
-    funct.localReg(username, password)
-    .then(function (user) {
-      if (user) {
-        console.log("REGISTERED: " + user.username);
-        req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
-        done(null, user);
-      }
-      if (!user) {
-        console.log("COULD NOT REGISTER");
-        req.session.error = 'That username is already in use, please try a different one.'; //inform user could not log them in
-        done(null, user);
-      }
-    })
-    .fail(function (err){
-      console.log(err.body);
-    });
-  }
-));
+// passport.use('local-register', new LocalStrategy(
+//   {passReqToCallback : true}, //allows us to pass back the request to the callback
+//   function(req, username, password, done) {
+//     funct.localReg(username, password)
+//     .then(function (user) {
+//       if (user) {
+//         console.log("REGISTERED: " + user.username);
+//         req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
+//         done(null, user);
+//       }
+//       if (!user) {
+//         console.log("COULD NOT REGISTER");
+//         req.session.error = 'That username is already in use, please try a different one.'; //inform user could not log them in
+//         done(null, user);
+//       }
+//     })
+//     .fail(function (err){
+//       console.log(err.body);
+//     });
+//   }
+// ));
 
 // Passport session setup.
 passport.serializeUser(function(user, done) {
@@ -123,10 +123,11 @@ var MONGODB_URI = process.env.MONGODB_URI  || "mongodb://localhost/mongoHeadline
 
 mongoose.connect(MONGODB_URI);
 // Set view engine
-app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+app.set('views', __dirname);
 
 
 //passport config
@@ -134,19 +135,19 @@ app.set('view engine', 'html');
 require('./config/passport')(passport)
 
 //===============ROUTES=================
-app.get('/', function(req, res) {res.render('index')});
-app.get('/login', function(req, res) {res.render('login')});
-app.get('/register', function(req, res) {res.render('register')});
+// app.get('./', function(req, res) {res.render('index')});
+// app.get('./login', function(req, res) {res.render('login')});
+app.get('register', function(req, res) {res.render('.register')});
 // app.get('/english', function(req, res) {res.render('english')});
 // app.get('/geography', function(req, res) {res.render('geography')});
 // app.get('/history', function(req, res) {res.render('history')});
 // app.get('/math', function(req, res) {res.render('math')});
 // app.get('/science', function(req, res) {res.render('science')});
 
-app.post('/register', passport.authenticate('local-register', {
-  successRedirect: '/main',
-  failureRedirect: '/register'
-  })
+// app.post('./register', passport.authenticate('local-register', {
+//   successRedirect: '/main',
+//   failureRedirect: '/register'
+//   })
 );
 app.post('/login', passport.authenticate('local-login', {
   successRedirect: '/main',
@@ -167,51 +168,51 @@ app.get('/logout', function(req, res){
 // register create user
 // https://expressjs.com/en/guide/routing.html
 // Load input validations
-const validateRegisterInput = require('./validation/register');
-app.post('/register', (req, res) => {
+// const validateRegisterInput = require('./validation/register');
+// app.post('/register', (req, res) => {
 
-  /* Before I do anything in the server-side with the data input by user, I pass the data to the validateRegisterInput() function. The data (i.e. req.body) includes all the information that the user puts in while registering.
-  And get the function's return values assigned to const { errors, isValid }.
-  So this is an exmple of Destructuring, where I am pulling the return values of a function and assigning it to two variables within curly braces */
-  const { errors, isValid } = validateRegisterInput(req.body);
-  // If the input is not valid res.send the entire errors object.
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+//   /* Before I do anything in the server-side with the data input by user, I pass the data to the validateRegisterInput() function. The data (i.e. req.body) includes all the information that the user puts in while registering.
+//   And get the function's return values assigned to const { errors, isValid }.
+//   So this is an exmple of Destructuring, where I am pulling the return values of a function and assigning it to two variables within curly braces */
+//   const { errors, isValid } = validateRegisterInput(req.body);
+//   // If the input is not valid res.send the entire errors object.
+//   if (!isValid) {
+//     return res.status(400).json(errors);
+//   }
 
-  // starting with this file (user.js) - any routes thats going to take in req.body we are going to firsts add the above 2 checks at the beginning.
+//   // starting with this file (user.js) - any routes thats going to take in req.body we are going to firsts add the above 2 checks at the beginning.
 
-  db.user.findOne({ username: req.body.username }).then(user => {
-    if (user) {
-      errors.username = "Username already exists";
-      return res.status(400).json(errors);
-    }
+//   db.user.findOne({ username: req.body.username }).then(user => {
+//     if (user) {
+//       errors.username = "Username already exists";
+//       return res.status(400).json(errors);
+//     }
 
-    // and then get other details of the new user from the post request
-    const newUser = new User({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      email: req.body.email,
-      username: req.body.username,
-      password: req.body.password,
-    });
+//     // and then get other details of the new user from the post request
+//     const newUser = new User({
+//       firstname: req.body.firstname,
+//       lastname: req.body.lastname,
+//       email: req.body.email,
+//       username: req.body.username,
+//       password: req.body.password,
+//     });
 
-    bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
-        if (err) return next(err);
-        newUser.password = hash;
-        newuser.save()
-          .then(function (user) {
-            res.json(user);
-          })
-          .catch(function (user) {
-            console.log(user)
-          });
-      });
-    });
-    db.User.create(newUser);
-  });
-});
+//     bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
+//       bcrypt.hash(newUser.password, salt, (err, hash) => {
+//         if (err) return next(err);
+//         newUser.password = hash;
+//         newuser.save()
+//           .then(function (user) {
+//             res.json(user);
+//           })
+//           .catch(function (user) {
+//             console.log(user)
+//           });
+//       });
+//     });
+//     db.User.create(newUser);
+//   });
+// });
 
 // May need to be '/users' but I think this creates the url '/login' 
 // if not then switch to user. 

@@ -62,11 +62,12 @@ $(document).ready(function () {
     });
 
     $("#done").on("click", function (event) {
-        event.preventDefault();
+        
         $(".question10").hide();
-        $(".result").show();
+        $("#result").show();
         // set values for post requests
-        var category = document.getElementById(idQ).value;
+       
+        var category = document.getElementById(idQ);
         $('.slider').change(function () {
             $('#slider_input').val(category);
         });
@@ -104,6 +105,25 @@ $(document).ready(function () {
         scoreT.appendChild(scoretxt);
 
     });
+    // These variables haven't been declared
+    // We need to tell them what they are getting from the user and the correct answer
+    // // var rightAnswer = document.getElementById(this.correct) or something like this
+    // This has to be ran on every question unless answers bc we are not doing form submit.
+    // https://stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
+    //  var rightAnswer = document.getElementsByName().value
+    // var userAnswer = document.getElementsByName('answers10');
+    // for (var i = 0; i < userAnswer.length; i++) {
+    //     if (userAnswer[i].checked && rightAnswer) {
+    //       // do whatever you want with the checked radio
+    //       alert(radios[i].value);
+      
+    //       // only one radio can be logically checked, don't check the rest
+    //       break;
+    //     }
+    //   }
+    // It's late and I'm too tired to fool with this. 
+    // We need to set a loop to get the current question and check if the users "checked" and value are the same 
+    // this function has to be ran on each question
     function evaluateQuestion(currentQuestion, rightAnswer) {
         var radioValue = $("input[name='" + currentQuestion + "']:checked").val();
         if (radioValue != rightAnswer) {
