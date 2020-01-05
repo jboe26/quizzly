@@ -1,6 +1,55 @@
 $(document).ready(function () {
     console.log("ready!");
 
+
+    $("#done").on("click", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+        var category = document.getElementById("idQ");
+        if (category === "english") {
+            $('.slider').change(function () {
+                $('#slider_input').val("english");
+            });
+        }
+        else if (category === "history") {
+            $('.slider').change(function () {
+                $('#slider_input').val("history");
+            });
+        }
+        else if (category === "math") {
+            $('.slider').change(function () {
+                $('#slider_input').val("math");
+            });
+        }
+        else if (category === "science") {
+            $('.slider').change(function () {
+                $('#slider_input').val("science");
+            });
+        }
+        else if (category === "geography") {
+            $('.slider').change(function () {
+                $('#slider_input').val("geography");
+            });
+        }
+        else {
+            console.log("Quiz submitted.");
+        }
+        // var newQuiz = {
+        //     quiz: $("#slider_input").val().trim()
+        // };
+        // // Send the POST request.
+        // $.ajax("/api/quiz", {
+        //     type: "POST",
+        //     data: newQuiz
+        // })
+    });
+
+    var correctAnswers = 0;
+    var missed = 0;
+    var incorrectAnswers = 0;
+    var score = 0;
+
+
     $("#next1").on("click", function (event) {
         event.preventDefault();
         $(".question1").hide();
@@ -11,6 +60,7 @@ $(document).ready(function () {
         event.preventDefault();
         $(".question2").hide();
         $(".question3").show();
+ 
     })
 
     $("#next3").on("click", function (event) {
@@ -54,11 +104,7 @@ $(document).ready(function () {
         $(".question9").hide();
         $(".question10").show();
     })
-    var correctAnswers = 0;
-    var missed = 10;
-    var incorrectAnswers = 0;
-    var score = 0;
-
+  
     $("#done").on("click", function (event) {
         event.preventDefault();
         $(".question10").hide();

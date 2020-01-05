@@ -1,4 +1,4 @@
-var express = require("express");
+
 // var path = require("path");
 var mongoose = require("mongoose");
 
@@ -6,13 +6,15 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys_dev');
+// const keys = require('../../config/keys_dev');
 // Sets up the Express App
 // =============================================================
 
 var app = express();
 
-var PORT = process.env.PORT || 4000;
+var PORT = process.env.PORT || 4000; 
+
+var PORT = MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Requiring our models for syncing
 var db = require("./models");
