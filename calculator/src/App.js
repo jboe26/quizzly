@@ -14,6 +14,25 @@ class App extends Component {
   }
   }
 
+  onClick = button => {
+
+    if(button=== "="){
+      this.calculation()
+    }
+
+    else if(button === "C"){
+      this.reset()
+    }
+
+    else if(button === "CE"){
+      this.delete()
+    }
+
+    else{
+      this.setState({ result: this.state.result + button})
+    }
+  }
+
   calculation = () => {
 
     try{
