@@ -2,11 +2,11 @@ var express = require("express");
 // var path = require("path");
 var mongoose = require("mongoose");
 
-const express = require('express');
+// const express = require('express');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys_dev');
+// const keys = require('../../config/keys_dev');
 // Sets up the Express App
 // =============================================================
 
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI;
+var MONGODB_URI = process.env.MONGODB_URI  || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
 
@@ -35,6 +35,7 @@ mongoose.connect(MONGODB_URI);
 app.use(passport.initialize());
 
 //passport config
+// https://stackoverflow.com/questions/41073038/confused-about-javascript-code-require-config-passportpassport
 require('./config/passport')(passport)
 
 

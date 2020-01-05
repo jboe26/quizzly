@@ -78,9 +78,7 @@
                             <a href="index.html"><p>Back to Home</p></a>
                             <a href="login.html"><p>Back to Login</p></a>
                             <a href="main.html"><button type="button" value="Register" class="btn text-align: center; register_btn" id="register" class="btn btn-warning">Register</button></a>
-                            
-                            
-        
+
                         </div>
                     </form>
                     
@@ -89,19 +87,7 @@
             </div>
         </div>
     </div>
-
-
-
-    <script>
-        $("#register").on("click", function (event) {
-            $.ajax({
-                url: "/register", success: function (user) {
-                    event.preventDefault();
-                }
-            });
-        });
-    </script>
-    <script src="js/register.js"></script>
+    <script src="./js/register.js"></script>
 
 </body>
 
