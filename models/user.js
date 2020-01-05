@@ -2,18 +2,25 @@ var mongoose = require("mongoose"),
   Schema = mongoose.Schema,
   bcrypt = require('bcrypt'),
   SALT_WORK_FACTOR = 10;
-
+// Ascync https://github.com/dcodeIO/bcrypt.js#usage---async
+// https://medium.com/javascript-in-plain-english/how-bcryptjs-works-90ef4cb85bf4
+var bcrypt = require('bcryptjs');
+bcrypt.genSalt(10, function(err, salt) {
+  bcrypt.hash("B4c0/\/", salt, function(err, hash) {
+      // Store hash in your password DB.
+  });
+});
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
 var UserSchema = new Schema({
-  First_Name: {
+  firstname: {
     type: String,
     required: true,
   },
-  Last_Name: {
+  lastname: {
     type: String,
     required: true,
   },
@@ -32,22 +39,7 @@ var UserSchema = new Schema({
   }
 });
 
-const newUser = new User({
-  First_Name: req.body.firstname,
-  Last_Name: req.body.lastname,
-  email: req.body.email,
-  username: req.body.username,
-  password: req.body.password,
-});
-bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
-  bcrypt.hash(newUser.password, salt, (err, hash) => {
-    if (err) return next(err);
-    newUser.password = hash;
-    newuser.save()
-      .then(user => res.json(user))
-      .catch(user => console.log(err))
-  });
-});
+
 UserSchema.pre('save', function (next) {
   var user = this;
 

@@ -21,8 +21,10 @@
     <div class="container">
         <br><br>
         <div class="jumbotron">
-            <h1 idQ="history" value="3">History Quiz</h1>
-            <input type="hidden" id="slider_input" name="text" value="" />
+            <h1 id="idQ" value="history">History Quiz</h1>
+            <form method="post" action="/category">
+                <input type="hidden" id="slider_input" name="slider" value="" />
+            </form>
         </div>
         <div class="qs">
             <div class="question1">
@@ -109,23 +111,19 @@
                 <input type="radio" name="answer10" value="virginia">C: Virginia <br>
                 <input type="radio" name="answer10" value="tampa">C: Tampa <br>
                 <button type="button" id="done" class="btn btn-secondary">Grade My Answers!</button>
-            
-                <h1 id="score"></h1>
+            </div>
+            <div>
                 <h2 id="correctAnswers"></h2>
                 <h2 id="incorrectAnswers"></h2>
                 <h2 id="missed"></h2>
-            
+                <h1 id="score"></h1>
+                <form method="post" action="/score">
+                    <input type="hidden" id="score_input" name="hidden" value="" />
+                </form>
+                <button href="/main" type="button" id="home" class="btn btn-secondary">Go to homepage</button>
             </div>
-            
-
-           
-
         </div>
-        <br>
-       
     </div>
-    </div>
-
     <script src="js/answers.js"></script>
 
 </body>

@@ -8,11 +8,12 @@ var Schema = mongoose.Schema;
 var ScoreSchema = new Schema({
   // `title` is of type String
   Score: Number,
+  username: String
 
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Note = mongoose.model("Score", ScoreSchema);
+var Score = mongoose.model("Score", ScoreSchema);
 
 // Export the Note model
 module.exports = Score;
