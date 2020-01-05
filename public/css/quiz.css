@@ -1,0 +1,24 @@
+body {
+    background-color: lightblue;
+    margin: auto;
+    padding: 30px;
+}
+
+#image {
+    margin: auto;
+    background-color: lightblue;
+    
+}
+
+#categories {
+    align-content: center;
+
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    border: none;
+    background-color: lightblue;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "quizzly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "authentication.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jboe26/quizzly.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jboe26/quizzly/issues"
+  },
+  "homepage": "https://github.com/jboe26/quizzly#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "init": "^0.1.2",
+    "mongoose": "^5.8.4",
+    "mysql": "^2.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
