@@ -14,6 +14,25 @@ class App extends Component {
   }
   }
 
+  calculation = () => {
+
+    try{
+      this.setState({
+        result : (eval(this.state.result) || "") + ""
+      })
+    } catch(e){
+      this.setState({ result: "error"})
+    }
+  }
+
+    reset = () => {
+
+      this.setState({result:""})
+    }
+
+    delete = () => {
+      this.setState({ result: this.state.result.slice(0,-1)})
+    }
 render(){
 
   return(
