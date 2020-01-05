@@ -12,7 +12,9 @@ const jwt = require('jsonwebtoken');
 
 var app = express();
 
-var PORT = process.env.PORT || 4000;
+var PORT = process.env.PORT || 4000; 
+
+var PORT = MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Requiring our models for syncing
 var db = require("./models");
