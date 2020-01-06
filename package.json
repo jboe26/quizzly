@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/jboe26/quizzly#readme",
   "dependencies": {
+    "babel": "^6.23.0",
     "bcrypt": "^3.0.7",
     "bcryptjs": "^2.4.3",
+    "config.js": "^0.1.0",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
@@ -38,6 +40,8 @@
     "q": "^1.5.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "validator": "^12.1.0"
   }
 }

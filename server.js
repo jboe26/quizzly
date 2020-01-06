@@ -12,7 +12,7 @@ var methodOverride = require('method-override');
 var http = require('http');  
 var httpServer = http.createServer(app);  // app middleware
 
-var config = require('./config/config.js'), //config file contains all tokens and other private info
+// var config = require('./config/config.js'), //config file contains all tokens and other private info
 funct = require('./config/functions.js'); //funct file contains our helper functions for our Passport and database work
 
 var app = express();
