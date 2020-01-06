@@ -148,7 +148,7 @@ app.get('register', function(req, res) {res.render('.register')});
 //   successRedirect: '/main',
 //   failureRedirect: '/register'
 //   })
-);
+// );
 app.post('/login', passport.authenticate('local-login', {
   successRedirect: '/main',
   failureRedirect: '/login'
