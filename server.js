@@ -41,27 +41,27 @@ passport.use('local-login', new LocalStrategy(
     });
   }
 ));
-// passport.use('local-register', new LocalStrategy(
-//   {passReqToCallback : true}, //allows us to pass back the request to the callback
-//   function(req, username, password, done) {
-//     funct.localReg(username, password)
-//     .then(function (user) {
-//       if (user) {
-//         console.log("REGISTERED: " + user.username);
-//         req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
-//         done(null, user);
-//       }
-//       if (!user) {
-//         console.log("COULD NOT REGISTER");
-//         req.session.error = 'That username is already in use, please try a different one.'; //inform user could not log them in
-//         done(null, user);
-//       }
-//     })
-//     .fail(function (err){
-//       console.log(err.body);
-//     });
-//   }
-// ));
+passport.use('local-register', new LocalStrategy(
+  {passReqToCallback : true}, //allows us to pass back the request to the callback
+  function(req, username, password, done) {
+    funct.localReg(username, password)
+    .then(function (user) {
+      if (user) {
+        console.log("REGISTERED: " + user.username);
+        req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
+        done(null, user);
+      }
+      if (!user) {
+        console.log("COULD NOT REGISTER");
+        req.session.error = 'That username is already in use, please try a different one.'; //inform user could not log them in
+        done(null, user);
+      }
+    })
+    .fail(function (err){
+      console.log(err.body);
+    });
+  }
+));
 
 // Passport session setup.
 passport.serializeUser(function(user, done) {
@@ -144,14 +144,14 @@ app.get('register', function(req, res) {res.render('.register')});
 // app.get('/math', function(req, res) {res.render('math')});
 // app.get('/science', function(req, res) {res.render('science')});
 
-// app.post('./register', passport.authenticate('local-register', {
-//   successRedirect: '/main',
-//   failureRedirect: '/register'
-//   })
-// );
+app.post('./register', passport.authenticate('local-register', {
+  successRedirect: '/main.html',
+  failureRedirect: '/register.html'
+  })
+);
 app.post('/login', passport.authenticate('local-login', {
-  successRedirect: '/main',
-  failureRedirect: '/login'
+  successRedirect: './main.html',
+  failureRedirect: './login.html'
   })
 );
 //logs user out of site, deleting them from the session, and returns to homepage
