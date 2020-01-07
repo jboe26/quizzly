@@ -1,6 +1,9 @@
+const mongodb = {
+  "mongodbHost": process.env.mongodbHost
+};
 var bcrypt = require('bcryptjs'),
     Q = require('q'),
-   config = require('./config.js'); //config file contains all tokens and other private info
+   config = mongodb; //config file contains all tokens and other private info
 
 // MongoDB connection information
 var mongodbUrl = 'mongodb://' + config.mongodbHost + ':27017/users';

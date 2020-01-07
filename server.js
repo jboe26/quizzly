@@ -291,9 +291,10 @@ app.post('/score', (req, res) => {
   });
 });
 
+
+  })
 //===============PORT=================
   var PORT = process.env.PORT || 4000;
-    app.listen(PORT, function () {
-      console.log("App listening on PORT " + PORT);
-    });
-  })
+  app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+  });
