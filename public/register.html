@@ -17,6 +17,7 @@
 
     <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="css/login.css">
+   
 </head>
 
 <body>
@@ -81,8 +82,8 @@
 
                         <div class="form-group">
                             <a href="./register.html"><button type="submit" value="Register"
-                                    class="btn text-align: center; register_btn" 
-                                    class="btn btn-warning">Register</button></a>
+                                    class="btn text-align: center; register_btn"
+                                    class="btn btn-warning" id="registerBtn" >Register</button></a>
                         </div>
                     </form>
 
@@ -91,8 +92,13 @@
             </div>
         </div>
     </div>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
     <script src="./js/register.js"></script>
-
+    <script src="../validation/is-empty.js"></script>
+    <script src="../validation/register.js"></script>
 </body>
 
 </html>
