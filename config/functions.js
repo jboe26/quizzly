@@ -1,3 +1,6 @@
+const mongodb = {
+  "mongodbHost": process.env.mongodbHost
+};
 var bcrypt = require('bcryptjs'),
     Q = require('q'),
     config = require('./config.js/index.js.js'); //config file contains all tokens and other private info

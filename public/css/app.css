@@ -70,6 +70,9 @@ body {
 #restart{
 	display: none;
 }
+#restartEnd{
+	display: none;
+}
 .form-group {
 	display: none;
 }

@@ -105,8 +105,8 @@ app.use(function (req, res, next) {
   if (success) res.locals.success = success;
 
   next();
-});
 
+})
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -316,6 +316,9 @@ app.post('/score', (req, res) => {
     }
   });
 });
+
+
+
 
 //===============PORT=================
 var PORT = process.env.PORT || 4000;
