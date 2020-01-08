@@ -7,7 +7,7 @@ $("#loginBtn").on("click", function (event) {
 
   $.ajax({
     type: "POST",
-    url: "/login",
+    url: "/login.html",
     data: data
   }).then(function (res) {
     $("#email").val("");
