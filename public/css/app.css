@@ -35,12 +35,12 @@ body {
 	align-content: center;
 }
 
-#score
+/* #score
 #correctAnswers
 #incorrectAnswers
  	#missed {
 	color: black;
-}
+} */
 
 .card{
 	height: 450px;
@@ -64,14 +64,18 @@ body {
 	
 	/* Show/Hide Questions 1-10 Here */
 
-.question2, .question3, .question4, .question5, .question6, .question7, .question8, .question9, .question10 {
+.question {
 	display: none;
 }
 
-#correctAnswers, #incorrectAnswers, #missed {
-	text-align: center;
-	color: white;
+.form-group {
 	display: none;
+}
+
+
+#correctAnswers, #incorrectAnswers, #missed, #score {
+	text-align: center;
+	color: black;
 }
 
 
