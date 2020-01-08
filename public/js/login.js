@@ -10,7 +10,7 @@ $("#loginBtn").on("click", function (event) {
     url: "/login",
     data: data
   }).then(function (res) {
-    $("#username").val("");
+    $("#email").val("");
     $("#password").val("");
 
     console.log('logigng in')
@@ -19,7 +19,7 @@ $("#loginBtn").on("click", function (event) {
 
   }).catch(function(err) {
     // On error sends to main page anyway for demo purposes
-    // window.location.replace("/main.html");
-    console.log('not getting user or wrong credentials')
+    window.location.replace("/main.html");
+    // console.log('not getting user or wrong credentials')
   })
 });
