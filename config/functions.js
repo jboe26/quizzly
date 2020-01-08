@@ -24,8 +24,7 @@ exports.localReg = function (username, password) {
           var hash = bcrypt.hashSync(password, 8);
           var user = {
             "username": username,
-            "password": hash,
-            "avatar": "http://placepuppy.it/images/homepage/Beagle_puppy_6_weeks.JPG"
+            "password": hash
           }
 
           console.log("CREATING USER:", username);

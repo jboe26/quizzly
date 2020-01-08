@@ -9,11 +9,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var http = require('http');  
+var http = require('http');
 var httpServer = http.createServer(app);  // app middleware
 
 var config = require('./config/config.js'), //config file contains all tokens and other private info
-funct = require('./config/functions.js'); //funct file contains our helper functions for our Passport and database work
+  funct = require('./config/functions.js'); //funct file contains our helper functions for our Passport and database work
 
 var app = express();
 
@@ -21,55 +21,55 @@ var app = express();
 //===============PASSPORT===============
 
 passport.use('local-login', new LocalStrategy(
-  {passReqToCallback : true}, //allows us to pass back the request to the callback
-  function(req, username, password, done) {
+  { passReqToCallback: true }, //allows us to pass back the request to the callback
+  function (req, username, password, done) {
     funct.localAuth(username, password)
-    .then(function (user) {
-      if (user) {
-        console.log("LOGGED IN AS: " + user.username);
-        req.session.success = 'You are successfully logged in ' + user.username + '!';
-        done(null, user);
-      }
-      if (!user) {
-        console.log("COULD NOT LOG IN");
-        req.session.error = 'Could not log user in. Please try again.'; //inform user could not log them in
-        done(null, user);
-      }
-    })
-    .fail(function (err){
-      console.log(err.body);
-    });
+      .then(function (user) {
+        if (user) {
+          console.log("LOGGED IN AS: " + user.username);
+          req.session.success = 'You are successfully logged in ' + user.username + '!';
+          done(null, user);
+        }
+        if (!user) {
+          console.log("COULD NOT LOG IN");
+          req.session.error = 'Could not log user in. Please try again.'; //inform user could not log them in
+          done(null, user);
+        }
+      })
+      .fail(function (err) {
+        console.log(err.body);
+      });
   }
 ));
 passport.use('local-register', new LocalStrategy(
-  {passReqToCallback : true}, //allows us to pass back the request to the callback
-  function(req, username, password, done) {
+  { passReqToCallback: true }, //allows us to pass back the request to the callback
+  function (req, username, password, done) {
     funct.localReg(username, password)
-    .then(function (user) {
-      if (user) {
-        console.log("REGISTERED: " + user.username);
-        req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
-        done(null, user);
-      }
-      if (!user) {
-        console.log("COULD NOT REGISTER");
-        req.session.error = 'That username is already in use, please try a different one.'; //inform user could not log them in
-        done(null, user);
-      }
-    })
-    .fail(function (err){
-      console.log(err.body);
-    });
+      .then(function (user) {
+        if (user) {
+          console.log("REGISTERED: " + user.username);
+          req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
+          done(null, user);
+        }
+        if (!user) {
+          console.log("COULD NOT REGISTER");
+          req.session.error = 'That username is already in use, please try a different one.'; //inform user could not log them in
+          done(null, user);
+        }
+      })
+      .fail(function (err) {
+        console.log(err.body);
+      });
   }
 ));
 
 // Passport session setup.
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   console.log("serializing " + user.username);
   done(null, user);
 });
 
-passport.deserializeUser(function(obj, done) {
+passport.deserializeUser(function (obj, done) {
   console.log("deserializing " + obj);
   done(null, obj);
 });
@@ -81,7 +81,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
-app.use(session({secret: 'supernova', saveUninitialized: true, resave: true}));
+app.use(session({ secret: 'supernova', saveUninitialized: true, resave: true }));
 
 // Sets up the Express App
 // =============================================================
@@ -90,10 +90,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Session-persisted message middleware
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
   var err = req.session.error,
-      msg = req.session.notice,
-      success = req.session.success;
+    msg = req.session.notice,
+    success = req.session.success;
 
   delete req.session.error;
   delete req.session.success;
@@ -117,11 +117,15 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
-
+// console.log(process.env.MONGODB_URI)
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI  || "mongodb://localhost/mongoHeadlines";
+// var MONGODB_URI = process.env.MONGODB_URI  || 'mongodb://localhost:27017/quiz_db';
+// console.log("^^^^^^^^^^^^^^^^^^^^^^^^^",MONGODB_URI);
+// mongoose.connect(MONGODB_URI, {},  function(error) {
+//   console.log("$$$$$$$$$$$$$$$$$$$",error)
+// });
+mongoose.connect('mongodb://localhost:27017/quiz_db', { useNewUrlParser: true });
 
-mongoose.connect(MONGODB_URI);
 // Set view engine
 // app.set('view engine', 'jade');
 
@@ -137,7 +141,7 @@ require('./config/passport')(passport)
 //===============ROUTES=================
 // app.get('./', function(req, res) {res.render('index')});
 // app.get('./login', function(req, res) {res.render('login')});
-app.get('register', function(req, res) {res.render('.register')});
+app.get('register', function (req, res) { res.render('.register') });
 // app.get('/english', function(req, res) {res.render('english')});
 // app.get('/geography', function(req, res) {res.render('geography')});
 // app.get('/history', function(req, res) {res.render('history')});
@@ -147,15 +151,15 @@ app.get('register', function(req, res) {res.render('.register')});
 app.post('./register', passport.authenticate('local-register', {
   successRedirect: '/main.html',
   failureRedirect: '/register.html'
-  })
+})
 );
-app.post('/login', passport.authenticate('local-login', {
-  successRedirect: './main.html',
-  failureRedirect: './login.html'
-  })
-);
+// app.post('/login', passport.authenticate('local-login', {
+//   successRedirect: './main.html',
+//   failureRedirect: './login.html'
+//   })
+// );
 //logs user out of site, deleting them from the session, and returns to homepage
-app.get('/logout', function(req, res){
+app.get('/logout', function (req, res) {
   var name = req.user.username;
   console.log("LOGGIN OUT " + req.user.username)
   req.logout();
@@ -176,9 +180,9 @@ app.get('/logout', function(req, res){
 //   So this is an exmple of Destructuring, where I am pulling the return values of a function and assigning it to two variables within curly braces */
 //   const { errors, isValid } = validateRegisterInput(req.body);
 //   // If the input is not valid res.send the entire errors object.
-//   if (!isValid) {
-//     return res.status(400).json(errors);
-//   }
+// if (!isValid) {
+//   return res.status(400).json(errors);
+// }
 
 //   // starting with this file (user.js) - any routes thats going to take in req.body we are going to firsts add the above 2 checks at the beginning.
 
@@ -219,19 +223,28 @@ app.get('/logout', function(req, res){
 // https://expressjs.com/en/guide/routing.html
 const validateLoginInput = require('./validation/login');
 app.post('/login', (req, res) => {
+  // console.log(req.body);
+  // console.log('-----------------')
   const { errors, isValid } = validateLoginInput(req.body);
+  // console.log(isValid);
   // check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-  const username = req.body.username;
+  // if (!isValid) {
+  //   console.log('----------------------------')
+  //   return res.status(400).json(errors);
+  // }
+  const email = req.body.email;
   const password = req.body.password;
 
-  db.User.findOne({ username }).then(user => {
+  console.log(email)
+  console.log("+++++++++++++++++++++++++++++++")
+  console.log(password)
+  db.User.findOne({ email }).then(user => {
+    console.log("{{{{{{{{{{{{{{{{{{{{{{", email)
     //if user does not exist than return status 400
+    console.log(user);
     if (!user) {
-      errors.username = 'User not found';
-      return res.status(404).json({ username: 'User not found' });
+      errors.user = 'User not found';
+      return res.status(404).json({ email: 'User not found' });
     }
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
@@ -250,8 +263,12 @@ app.post('/login', (req, res) => {
         errors.password = "Incorrect Passsword";
         return res.status(400).json(errors);
       }
-    });
-  });
+    }).catch(function (err) {
+      console.log("!!!!!!!!!!!!", err)
+    })
+  }).catch(function (err) {
+    console.log(err)
+  })
 });
 
 app.get(
@@ -280,22 +297,22 @@ app.post('/category', (req, res) => {
   });
 });
 
-  app.post('/score', (req, res) => {
-    db.User.findOne({ username: req.body.username }).then(user => {
-      if (user) {
-        const newScore = new Score({
-          Score: req.body.score_input,
-          username: req.body.username,
-        });
-        db.Score.create(newScore);
-      } else {
-        return res.status(404).json({ username: 'username did not match' });
-      }
-    });
+app.post('/score', (req, res) => {
+  db.User.findOne({ username: req.body.username }).then(user => {
+    if (user) {
+      const newScore = new Score({
+        Score: req.body.score_input,
+        username: req.body.username,
+      });
+      db.Score.create(newScore);
+    } else {
+      return res.status(404).json({ username: 'username did not match' });
+    }
   });
+});
 
 //===============PORT=================
-  var PORT = process.env.PORT || 4000;
-    app.listen(PORT, function () {
-      console.log("App listening on PORT " + PORT);
-    });
+var PORT = process.env.PORT || 4000;
+app.listen(PORT, function () {
+  console.log("App listening on PORT " + PORT);
+});

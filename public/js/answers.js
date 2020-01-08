@@ -110,17 +110,17 @@ $(document).ready(function () {
     // // var rightAnswer = document.getElementById(this.correct) or something like this
     // This has to be ran on every question unless answers bc we are not doing form submit.
     // https://stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
-    //  var rightAnswer = document.getElementsByName().value
-    // var userAnswer = document.getElementsByName('answers10');
-    // for (var i = 0; i < userAnswer.length; i++) {
-    //     if (userAnswer[i].checked && rightAnswer) {
-    //       // do whatever you want with the checked radio
-    //       alert(radios[i].value);
+     var rightAnswer = document.getElementsByName().value
+    var userAnswer = document.getElementsByName('answers10');
+    for (var i = 0; i < userAnswer.length; i++) {
+        if (userAnswer[i].checked && rightAnswer) {
+          // do whatever you want with the checked radio
+          alert(radios[i].value);
       
-    //       // only one radio can be logically checked, don't check the rest
-    //       break;
-    //     }
-    //   }
+          // only one radio can be logically checked, don't check the rest
+          break;
+        }
+      }
     // It's late and I'm too tired to fool with this. 
     // We need to set a loop to get the current question and check if the users "checked" and value are the same 
     // this function has to be ran on each question
