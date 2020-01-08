@@ -17,9 +17,14 @@
 </head>
 
 <body>
+    <span style="display: inline;">
+        <a href="./main.html"><button style="height:40px;color: black; background-color: lightgray">Back to
+                Home</button></a>
+    </span>
     <form class="container">
         <div class="jumbotron">
             <h1 id="idQ" value="english">English Quiz</h1>
+            <a href="english.html"> <button type="button" id="restart" class="btn btn-secondary">Restart</button></a>
             <form method="post" action="/category">
                 <input type="hidden" id="slider_input" name="slider" value="" />
             </form>
@@ -33,7 +38,7 @@
                 <input type="radio" name="answer1" value="are">B: are <br>
                 <button type="button" id="next1" class="btn btn-dark">Next</button>
             </div>
-            <div class="question" id="q2" >
+            <div class="question" id="q2">
                 <p>Question 2: All my books (is , are ) at home.</p>
                 <input type="radio" name="answer2" value="is">A: is <br>
                 <!-- correct--> <input type="radio" name="answer2" id="1" value="are">B: are <br>
@@ -86,27 +91,33 @@
                 <p>Question 10: We should not be late to the party.</p>
                 <input type="radio" name="answer10" value="shouldnt">A: shoul'dnt <br>
                 <input type="radio" name="answer10" value="shouldnt">B: should'not <br>
-                <!--correct--><input type="radio" name="answer10" id="1" value="shouldnt" >C: shouldn't <br>
+                <!--correct--><input type="radio" name="answer10" id="1" value="shouldnt">C: shouldn't <br>
                 <input type="radio" name="answer10" value="shouldnt">D: sh'ouldnt <br>
                 <button type="button" id="done" class="btn btn-secondary">Grade My Answers!</button>
 
             </div>
-            <div class ="form-group" id="result">
-                <h2 id="correctAnswers"></h2></n>
-                <h2 id="incorrectAnswers"></h2></n>
-                <h2 id="missed"></h2></n>
-                <h1 id="score"></h1></n>
+            <div class="form-group" id="result">
+                <h2 id="correctAnswers"></h2>
+                </n>
+                <h2 id="incorrectAnswers"></h2>
+                </n>
+                <!-- <h2 id="missed"></h2></n> -->
+                <h1 id="score"></h1>
+                </n>
                 <form method="post" action="/score">
                     <input type="hidden" id="score_input" name="hidden" value="" />
                 </form>
                 <a href="main.html"> <button type="button" id="home" class="btn btn-secondary">Go to
                         homepage</button></a>
+                <a href="english.html"> <button type="button" id="restartEnd"
+                        class="btn btn-secondary">Take Quiz Again?</button></a>
+                </span>
             </div>
 
         </div>
 
     </form>
-    <script src= "./js/answers.js"></script>
+    <script src="./js/answers.js"></script>
 
 </body>
 

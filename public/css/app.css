@@ -67,7 +67,9 @@ body {
 .question {
 	display: none;
 }
-
+#restart{
+	display: none;
+}
 .form-group {
 	display: none;
 }

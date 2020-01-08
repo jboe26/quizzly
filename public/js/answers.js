@@ -3,6 +3,7 @@ $(document).ready(function () {
     $("#start").on("click", function (event) {
         $("#start").hide();
         $("#q1").show();
+        $("#restart").show();
     });
     // A series of questions that shows based on previous button; hides on #next[i] button
     $("#next1").on("click", function (event) {
@@ -63,6 +64,7 @@ $(document).ready(function () {
         var score = 0;
         // Hides question10
         $("#q10").hide();
+        $("#restart").hide();
         // $("#result").show();
         // Functions to increment results variables
         function markIncorrect() {
@@ -113,13 +115,15 @@ $(document).ready(function () {
         iA = document.getElementById("incorrectAnswers");
         iatxt = document.createTextNode("You got " + incorrectAnswers + " questions wrong.");
         cA.appendChild(iatxt);
-        mTotal = document.getElementById("missed");
-        mtxt = document.createTextNode("You missed " + missed + " questions.");
-        mTotal.appendChild(mtxt);
+        // mTotal = document.getElementById("missed");
+        // mtxt = document.createTextNode("You missed " + missed + " questions.");
+        // mTotal.appendChild(mtxt);
         scoreT = document.getElementById("score");
         scoretxt = document.createTextNode("Your score " + score + "%");
         scoreT.appendChild(scoretxt);
         // Shows results div
         $("#result").show();
+        $("#restartEnd").show();
+        
     });
 });
