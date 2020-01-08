@@ -2,7 +2,7 @@ $("#loginBtn").on("click", function (event) {
   // Make sure to preventDefault on a submit event.
   event.preventDefault();
   var data = {}
-  data.email = $("#username").val();
+  data.email = $("#email").val();
   data.password = $("#password").val();
 
   $.ajax({
@@ -18,6 +18,7 @@ $("#loginBtn").on("click", function (event) {
     // res.sendFile('main.html')
 
   }).catch(function(err) {
+    // On error sends to main page anyway for demo purposes
     window.location.replace("/main.html");
     // console.log('not getting user or wrong credentials')
   })
