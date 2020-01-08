@@ -4,7 +4,7 @@ $(document).ready(function () {
     var correctAnswers = 0;
     var missed = 0;
     var incorrectAnswers = 0;
-    var score = 0;
+    var score = 100;
 
     $("#next1").on("click", function (event) {
         event.preventDefault();

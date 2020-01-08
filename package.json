@@ -36,11 +36,11 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "q": "^1.5.1"
+    "q": "^1.5.1",
+    "validator": "^12.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "validator": "^12.1.0"
+    "@babel/preset-env": "^7.7.7"
   }
 }
