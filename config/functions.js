@@ -17,7 +17,7 @@ exports.localReg = function (email, password) {
     collection.findOne({'email' : email})
       .then(function (result) {
         if (null != result) {
-          console.log("USERNAME ALREADY EXISTS:", result.email);
+          console.log("EMAIL ALREADY EXISTS:", result.email);
           deferred.resolve(false); // email exists
         }
         else  {
@@ -27,7 +27,7 @@ exports.localReg = function (email, password) {
             "password": hash
           }
 
-          console.log("CREATING USER:", username);
+          console.log("CREATING USER:", email);
 
           collection.insert(user)
             .then(function () {
