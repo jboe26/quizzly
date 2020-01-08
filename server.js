@@ -223,9 +223,13 @@ require('./config/passport')(passport)
 // if not then switch to user. 
 // https://expressjs.com/en/guide/routing.html
 const validateLoginInput = require('./validation/login');
+app.get(`/test`, (req, res) => {
+  res.send(`test`)
+})
 app.post('/login', (req, res) => {
   // console.log(req.body);
   // console.log('-----------------')
+  console.log(`inside login`)
   
   const { errors, isValid } = validateLoginInput(req.body);
   // console.log(isValid);
@@ -240,10 +244,11 @@ app.post('/login', (req, res) => {
   console.log(email)
   console.log("+++++++++++++++++++++++++++++++")
   console.log(password)
-  db.User.findOne({ email }).then(user => {
+  db.User.findOne({ email: email }).then(user => {
     // console.log("{{{{{{{{{{{{{{{{{{{{{{", email);
     //if user does not exist than return status 400
     // console.log(this.email);
+    console.log(`user`, user)
     if(user){
       console.log("match");
       return email;
