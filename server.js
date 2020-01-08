@@ -141,31 +141,31 @@ require('./config/passport')(passport)
 //===============ROUTES=================
 // app.get('./', function(req, res) {res.render('index')});
 // app.get('./login', function(req, res) {res.render('login')});
-app.get('register', function (req, res) { res.render('.register') });
+// app.get('register', function (req, res) { res.render('.register') });
 // app.get('/english', function(req, res) {res.render('english')});
 // app.get('/geography', function(req, res) {res.render('geography')});
 // app.get('/history', function(req, res) {res.render('history')});
 // app.get('/math', function(req, res) {res.render('math')});
 // app.get('/science', function(req, res) {res.render('science')});
 
-app.post('./register', passport.authenticate('local-register', {
-  successRedirect: '/main.html',
-  failureRedirect: '/register.html'
-})
-);
+// app.post('./register', passport.authenticate('local-register', {
+//   successRedirect: '/main.html',
+//   failureRedirect: '/register.html'
+// })
+// );
 // app.post('/login', passport.authenticate('local-login', {
 //   successRedirect: './main.html',
 //   failureRedirect: './login.html'
 //   })
 // );
 //logs user out of site, deleting them from the session, and returns to homepage
-app.get('/logout', function (req, res) {
-  var name = req.user.username;
-  console.log("LOGGIN OUT " + req.user.username)
-  req.logout();
-  res.redirect('/');
-  req.session.notice = "You have successfully been logged out " + name + "!";
-});
+// app.get('/logout', function (req, res) {
+//   var name = req.user.username;
+//   console.log("LOGGIN OUT " + req.user.username)
+//   req.logout();
+//   res.redirect('/');
+//   req.session.notice = "You have successfully been logged out " + name + "!";
+// });
 
 
 // https://mherman.org/blog/handling-ajax-calls-with-node-dot-js-and-express-scraping-craigslist/
@@ -241,7 +241,7 @@ app.post('/login', (req, res) => {
   db.User.findOne({ email }).then(user => {
     console.log("{{{{{{{{{{{{{{{{{{{{{{", email)
     //if user does not exist than return status 400
-    console.log(user);
+    console.log(this.user);
     if (!user) {
       errors.user = 'User not found';
       return res.status(404).json({ email: 'User not found' });
@@ -271,31 +271,31 @@ app.post('/login', (req, res) => {
   })
 });
 
-app.get(
-  '/current',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    res.json({
-      id: req.user.id,
-      firstname: req.user.firstname,
-      email: req.user.email
-    });
-  }
-);
+// app.get(
+//   '/current',
+//   passport.authenticate('jwt', { session: false }),
+//   (req, res) => {
+//     res.json({
+//       id: req.user.id,
+//       firstname: req.user.firstname,
+//       email: req.user.email
+//     });
+//   }
+// );
 
-app.post('/category', (req, res) => {
-  db.User.findOne({ username: req.body.username }).then(user => {
-    if (user) {
-      const newQuiz = new Quiz({
-        Category: req.body.slider_input,
-        username: req.body.username,
-      });
-      db.Quiz.create(newQuiz);
-    } else {
-      return res.status(404).json({ username: 'username did not match' });
-    }
-  });
-});
+// app.post('/category', (req, res) => {
+//   db.User.findOne({ username: req.body.username }).then(user => {
+//     if (user) {
+//       const newQuiz = new Quiz({
+//         Category: req.body.slider_input,
+//         username: req.body.username,
+//       });
+//       db.Quiz.create(newQuiz);
+//     } else {
+//       return res.status(404).json({ username: 'username did not match' });
+//     }
+//   });
+// });
 
 app.post('/score', (req, res) => {
   db.User.findOne({ username: req.body.username }).then(user => {
