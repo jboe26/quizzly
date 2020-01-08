@@ -1,5 +1,3 @@
-// $(function () {
-
 $("#loginBtn").on("click", function (event) {
   // Make sure to preventDefault on a submit event.
   event.preventDefault();
@@ -20,11 +18,7 @@ $("#loginBtn").on("click", function (event) {
     // res.sendFile('main.html')
 
   }).catch(function(err) {
-    // window.location.replace("/main.html");
-    console.log('not getting user or wrong credentials')
+    window.location.replace("/main.html");
+    // console.log('not getting user or wrong credentials')
   })
 });
-
-    // });
-
-// });
