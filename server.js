@@ -216,7 +216,7 @@ app.get('/logout', function (req, res) {
 // May need to be '/users' but I think this creates the url '/login' 
 // if not then switch to user. 
 // https://expressjs.com/en/guide/routing.html
-// const validateLoginInput = require('./validation/login');
+const validateLoginInput = require('./validation/login');
 app.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
   // check validation
