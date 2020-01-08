@@ -9,7 +9,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var http = require('http');  
+var http = require('http');
 var httpServer = http.createServer(app);  // app middleware
 
 // var config = require('./config/config.js'), //config file contains all tokens and other private info
@@ -21,55 +21,55 @@ var app = express();
 //===============PASSPORT===============
 
 passport.use('local-login', new LocalStrategy(
-  {passReqToCallback : true}, //allows us to pass back the request to the callback
-  function(req, username, password, done) {
+  { passReqToCallback: true }, //allows us to pass back the request to the callback
+  function (req, username, password, done) {
     funct.localAuth(username, password)
-    .then(function (user) {
-      if (user) {
-        console.log("LOGGED IN AS: " + user.username);
-        req.session.success = 'You are successfully logged in ' + user.username + '!';
-        done(null, user);
-      }
-      if (!user) {
-        console.log("COULD NOT LOG IN");
-        req.session.error = 'Could not log user in. Please try again.'; //inform user could not log them in
-        done(null, user);
-      }
-    })
-    .fail(function (err){
-      console.log(err.body);
-    });
+      .then(function (user) {
+        if (user) {
+          console.log("LOGGED IN AS: " + user.username);
+          req.session.success = 'You are successfully logged in ' + user.username + '!';
+          done(null, user);
+        }
+        if (!user) {
+          console.log("COULD NOT LOG IN");
+          req.session.error = 'Could not log user in. Please try again.'; //inform user could not log them in
+          done(null, user);
+        }
+      })
+      .fail(function (err) {
+        console.log(err.body);
+      });
   }
 ));
 passport.use('local-register', new LocalStrategy(
-  {passReqToCallback : true}, //allows us to pass back the request to the callback
-  function(req, username, password, done) {
+  { passReqToCallback: true }, //allows us to pass back the request to the callback
+  function (req, username, password, done) {
     funct.localReg(username, password)
-    .then(function (user) {
-      if (user) {
-        console.log("REGISTERED: " + user.username);
-        req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
-        done(null, user);
-      }
-      if (!user) {
-        console.log("COULD NOT REGISTER");
-        req.session.error = 'That username is already in use, please try a different one.'; //inform user could not log them in
-        done(null, user);
-      }
-    })
-    .fail(function (err){
-      console.log(err.body);
-    });
+      .then(function (user) {
+        if (user) {
+          console.log("REGISTERED: " + user.username);
+          req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
+          done(null, user);
+        }
+        if (!user) {
+          console.log("COULD NOT REGISTER");
+          req.session.error = 'That username is already in use, please try a different one.'; //inform user could not log them in
+          done(null, user);
+        }
+      })
+      .fail(function (err) {
+        console.log(err.body);
+      });
   }
 ));
 
 // Passport session setup.
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   console.log("serializing " + user.username);
   done(null, user);
 });
 
-passport.deserializeUser(function(obj, done) {
+passport.deserializeUser(function (obj, done) {
   console.log("deserializing " + obj);
   done(null, obj);
 });
@@ -81,7 +81,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
-app.use(session({secret: 'supernova', saveUninitialized: true, resave: true}));
+app.use(session({ secret: 'supernova', saveUninitialized: true, resave: true }));
 
 // Sets up the Express App
 // =============================================================
@@ -90,10 +90,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Session-persisted message middleware
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
   var err = req.session.error,
-      msg = req.session.notice,
-      success = req.session.success;
+    msg = req.session.notice,
+    success = req.session.success;
 
   delete req.session.error;
   delete req.session.success;
@@ -103,7 +103,9 @@ app.use(function(req, res, next){
   if (msg) res.locals.notice = msg;
   if (success) res.locals.success = success;
 
+  next();
 
+})
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -116,7 +118,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI  || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
 // Set view engine
@@ -134,7 +136,7 @@ require('./config/passport')(passport)
 //===============ROUTES=================
 // app.get('./', function(req, res) {res.render('index')});
 // app.get('./login', function(req, res) {res.render('login')});
-app.get('register', function(req, res) {res.render('.register')});
+app.get('register', function (req, res) { res.render('.register') });
 // app.get('/english', function(req, res) {res.render('english')});
 // app.get('/geography', function(req, res) {res.render('geography')});
 // app.get('/history', function(req, res) {res.render('history')});
@@ -144,15 +146,15 @@ app.get('register', function(req, res) {res.render('.register')});
 app.post('./register', passport.authenticate('local-register', {
   successRedirect: '/main.html',
   failureRedirect: '/register.html'
-  })
+})
 );
 app.post('/login', passport.authenticate('local-login', {
   successRedirect: './main.html',
   failureRedirect: './login.html'
-  })
+})
 );
 //logs user out of site, deleting them from the session, and returns to homepage
-app.get('/logout', function(req, res){
+app.get('/logout', function (req, res) {
   var name = req.user.username;
   console.log("LOGGIN OUT " + req.user.username)
   req.logout();
@@ -292,9 +294,9 @@ app.post('/score', (req, res) => {
 });
 
 
-  })
+
 //===============PORT=================
-  var PORT = process.env.PORT || 4000;
-  app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
-  });
+var PORT = process.env.PORT || 4000;
+app.listen(PORT, function () {
+  console.log("App listening on PORT " + PORT);
+});
