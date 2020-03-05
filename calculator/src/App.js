@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from '../node_modules/@types/react';
 import Result from './components/Results';
 import Keypad from './components/Keypad'
 import './App.css'
