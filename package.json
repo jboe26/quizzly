@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jboe26/quizzly#readme",
   "dependencies": {
     "babel": "^6.23.0",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "config.js": "^0.1.0",
     "cookie-parser": "^1.4.4",
